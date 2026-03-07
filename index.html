@@ -4,270 +4,1186 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manisa Ojha | Senior Software Developer</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg:       #080c18;
+    --surface:  #0d1226;
+    --card:     #111829;
+    --border:   #1c2540;
+    --border2:  #243050;
+    --gold:     #d4a853;
+    --gold-dim: rgba(212,168,83,0.15);
+    --gold-glow:rgba(212,168,83,0.08);
+    --teal:     #4ecdc4;
+    --teal-dim: rgba(78,205,196,0.12);
+    --rose:     #e8887a;
+    --text-hi:  #f4f6fc;
+    --text-md:  #c2c9db;
+    --text-lo:  #6e7a95;
+  }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#f5f7fa;
-color:#333;
-}
+  /* ── LIGHT THEME ── */
+  html.light {
+    --bg:       #f5f3ee;
+    --surface:  #edeae3;
+    --card:     #ffffff;
+    --border:   #ddd8cc;
+    --border2:  #ccc7b8;
+    --gold:     #b5852a;
+    --gold-dim: rgba(181,133,42,0.10);
+    --gold-glow:rgba(181,133,42,0.06);
+    --teal:     #1a9b94;
+    --teal-dim: rgba(26,155,148,0.10);
+    --rose:     #c9584a;
+    --text-hi:  #18181b;
+    --text-md:  #3a3830;
+    --text-lo:  #7a7264;
+  }
 
-header{
-background:#1f2937;
-color:white;
-padding:40px;
-text-align:center;
-}
+  /* smooth palette crossfade */
+  body, body * {
+    transition-property: background-color, border-color, color, box-shadow, opacity;
+    transition-duration: 0.38s;
+    transition-timing-function: ease;
+  }
 
-header h1{
-margin:0;
-font-size:36px;
-}
+  /* ── THEME TOGGLE BUTTON ── */
+  #theme-toggle {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    z-index: 999;
+    display: flex; align-items: center; gap: 9px;
+    padding: 11px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(212,168,83,0.38);
+    background: rgba(8,12,24,0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--gold);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
 
-header p{
-font-size:18px;
-margin-top:10px;
-}
+  html.light #theme-toggle {
+    background: rgba(255,255,255,0.9);
+    border-color: rgba(181,133,42,0.35);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
 
-section{
-max-width:900px;
-margin:auto;
-padding:40px 20px;
-}
+  #theme-toggle:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(212,168,83,0.28);
+  }
 
-h2{
-color:#1f2937;
-border-bottom:2px solid #e5e7eb;
-padding-bottom:8px;
-}
+  .toggle-icon { font-size: 16px; display: inline-block; }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:10px;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-.skill{
-background:#e5e7eb;
-padding:8px 12px;
-border-radius:6px;
-font-size:14px;
-}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-md);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
 
-.job{
-margin-top:25px;
-}
+  /* ── HERO ── */
+  header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 40px 80px;
+    overflow: hidden;
+  }
 
-.job h3{
-margin-bottom:5px;
-}
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% -5%,  rgba(212,168,83,0.14)  0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 85% 90%,  rgba(78,205,196,0.10)  0%, transparent 55%),
+      radial-gradient(ellipse 40% 30% at 10% 70%,  rgba(232,136,122,0.07) 0%, transparent 50%),
+      linear-gradient(175deg, #0c1228 0%, #080c18 100%);
+    z-index: 0;
+  }
 
-.job p{
-margin:3px 0;
-}
+  header::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(212,168,83,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,168,83,0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
 
-footer{
-text-align:center;
-padding:20px;
-background:#1f2937;
-color:white;
-}
+  .header-content { position: relative; z-index: 1; }
 
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(212,168,83,0.28);
+    background: rgba(212,168,83,0.06);
+    padding: 7px 20px;
+    border-radius: 40px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: heroFade 0.9s 0.1s cubic-bezier(.22,1,.36,1) forwards;
+  }
+
+  .badge-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold);
+    animation: blink 2.5s ease infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 9vw, 102px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1;
+    color: var(--text-hi);
+    opacity: 0;
+    animation: heroFade 0.9s 0.22s cubic-bezier(.22,1,.36,1) forwards;
+  }
+
+  header h1 .accent { color: var(--gold); font-style: italic; }
+
+  .header-title {
+    margin-top: 22px;
+    font-size: clamp(13px, 1.8vw, 17px);
+    font-weight: 300;
+    color: var(--text-lo);
+    letter-spacing: 1.2px;
+    opacity: 0;
+    animation: heroFade 0.9s 0.34s cubic-bezier(.22,1,.36,1) forwards;
+  }
+
+  .header-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 36px;
+    opacity: 0;
+    animation: heroFade 0.9s 0.46s cubic-bezier(.22,1,.36,1) forwards;
+  }
+
+  .header-stack span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding: 5px 14px;
+    border: 1px solid rgba(78,205,196,0.2);
+    border-radius: 5px;
+    background: rgba(78,205,196,0.05);
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  }
+
+  .header-stack span:hover {
+    background: rgba(78,205,196,0.12);
+    border-color: rgba(78,205,196,0.45);
+    transform: translateY(-2px);
+  }
+
+  .scroll-hint {
+    position: absolute; bottom: 44px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    color: var(--text-lo);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: heroFade 1s 0.9s ease forwards;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px; height: 52px;
+    background: linear-gradient(var(--gold), transparent);
+    animation: scrollDrop 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollDrop {
+    0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+    40%  { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    100% { opacity: 0; transform: scaleY(1) translateY(16px); transform-origin: top; }
+  }
+
+  /* Light theme header override */
+  html.light header::before {
+    background:
+      radial-gradient(ellipse 70% 55% at 50% -5%,  rgba(181,133,42,0.10)  0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 85% 90%,  rgba(26,155,148,0.07)  0%, transparent 55%),
+      linear-gradient(175deg, #ede9e0 0%, #f5f3ee 100%);
+  }
+
+  /* Light theme nav */
+  html.light nav {
+    background: rgba(245,243,238,0.94);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(8,12,24,0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    transition: box-shadow 0.3s;
+  }
+
+  nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.4); }
+
+  nav a {
+    display: block;
+    padding: 17px 22px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-lo);
+    position: relative;
+    transition: color 0.22s;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; right: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--teal));
+    border-radius: 2px;
+    transition: left 0.3s cubic-bezier(.22,1,.36,1), right 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  nav a:hover { color: var(--text-hi); }
+  nav a:hover::after { left: 14px; right: 14px; }
+  nav a.active { color: var(--gold); }
+  nav a.active::after { left: 14px; right: 14px; }
+
+  /* ── SECTIONS ── */
+  .section-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 96px 36px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 700;
+    color: var(--text-hi);
+    margin-bottom: 44px;
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  .section-divider {
+    border: none; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border2) 30%, var(--border2) 70%, transparent 100%);
+    margin: 0;
+  }
+
+  /* ── SUMMARY ── */
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--gold);
+    border-radius: 14px;
+    padding: 40px 44px;
+    font-size: 16.5px;
+    line-height: 1.95;
+    color: var(--text-md);
+    position: relative;
+    overflow: hidden;
+    transition: border-left-color 0.3s, box-shadow 0.3s;
+  }
+
+  .summary-card:hover {
+    border-left-color: var(--teal);
+    box-shadow: 0 0 48px rgba(78,205,196,0.05);
+  }
+
+  .summary-card::before {
+    content: '\201C';
+    position: absolute; top: -10px; right: 36px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(212,168,83,0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .skill-tag {
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--card);
+    border: 1px solid var(--border2);
+    color: var(--text-md);
+    cursor: default;
+    transition: all 0.25s cubic-bezier(.22,1,.36,1);
+    position: relative; overflow: hidden;
+  }
+
+  .skill-tag::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--gold-dim), var(--teal-dim));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .skill-tag:hover {
+    border-color: rgba(212,168,83,0.5);
+    color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .skill-tag:hover::before { opacity: 1; }
+  .skill-tag span { position: relative; z-index: 1; }
+
+  /* ── AUDIENCE ── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .audience-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    padding: 28px 26px;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    position: relative; overflow: hidden;
+  }
+
+  .audience-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--teal));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+  }
+
+  .audience-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212,168,83,0.25);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.35);
+  }
+
+  .audience-card:hover::after { transform: scaleX(1); }
+
+  .audience-icon { font-size: 30px; margin-bottom: 14px; }
+
+  .audience-card h4 {
+    font-size: 14px; font-weight: 600;
+    color: var(--text-hi); margin-bottom: 8px; letter-spacing: 0.3px;
+  }
+
+  .audience-card p { font-size: 13px; color: var(--text-lo); line-height: 1.65; }
+
+  /* ── ARTIFACT ── */
+  .artifact-card {
+    background: var(--card);
+    border: 1px solid var(--border2);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+
+  .artifact-card:hover { box-shadow: 0 20px 64px rgba(0,0,0,0.4); }
+
+  .artifact-header {
+    background: linear-gradient(135deg, rgba(212,168,83,0.08) 0%, rgba(78,205,196,0.04) 100%);
+    border-bottom: 1px solid var(--border2);
+    padding: 34px 42px;
+    display: flex; align-items: flex-start; gap: 24px;
+  }
+
+  .artifact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 68px; font-weight: 900; font-style: italic;
+    color: rgba(212,168,83,0.15);
+    line-height: 1; flex-shrink: 0;
+    transition: color 0.3s;
+  }
+
+  .artifact-card:hover .artifact-num { color: rgba(212,168,83,0.3); }
+
+  .artifact-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px; font-weight: 700;
+    color: var(--text-hi); margin-bottom: 6px;
+  }
+
+  .artifact-header p { font-size: 13px; color: var(--text-lo); }
+
+  .artifact-body { padding: 38px 42px; }
+
+  .artifact-body p {
+    color: var(--text-md); margin-bottom: 18px;
+    font-size: 15px; line-height: 1.9;
+  }
+
+  .artifact-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(212,168,83,0.3);
+    color: var(--gold);
+    padding: 11px 24px; border-radius: 10px;
+    text-decoration: none; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.5px; margin-bottom: 36px;
+    transition: all 0.25s cubic-bezier(.22,1,.36,1);
+    position: relative; overflow: hidden;
+  }
+
+  .artifact-link::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(212,168,83,0.15), transparent);
+    opacity: 0; transition: opacity 0.25s;
+  }
+
+  .artifact-link:hover {
+    transform: translateX(5px);
+    border-color: rgba(212,168,83,0.6);
+    box-shadow: 0 4px 24px rgba(212,168,83,0.18);
+  }
+
+  .artifact-link:hover::before { opacity: 1; }
+  .artifact-link span { position: relative; z-index: 1; }
+
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 8px;
+  }
+
+  .list-block h4 {
+    font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+  }
+
+  .list-block ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+
+  .list-block li {
+    font-size: 13.5px; color: var(--text-lo);
+    padding-left: 18px; position: relative; line-height: 1.65;
+    transition: color 0.2s;
+  }
+
+  .list-block li:hover { color: var(--text-md); }
+
+  .list-block li::before {
+    content: '▸'; position: absolute; left: 0; top: 4px;
+    color: var(--gold); font-size: 9px;
+  }
+
+  /* ── ARTIFACT SUB-SECTIONS ── */
+  .artifact-section {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+  }
+
+  .artifact-section-title {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .artifact-section-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border2), transparent);
+  }
+
+  .artifact-section > p {
+    font-size: 14.5px; color: var(--text-lo);
+    line-height: 1.85;
+  }
+
+  .artifact-tools { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 4px; }
+
+  .artifact-tool {
+    font-size: 12px; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(78,205,196,0.2);
+    color: var(--teal);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .artifact-tool:hover { background: rgba(78,205,196,0.18); border-color: rgba(78,205,196,0.4); }
+
+  .artifact-value-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 4px;
+  }
+
+  .value-card {
+    background: var(--surface); border: 1px solid var(--border2);
+    border-radius: 10px; padding: 20px 22px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .value-card:hover { border-color: rgba(212,168,83,0.3); transform: translateY(-2px); }
+
+  .value-card h5 {
+    font-size: 12px; font-weight: 600;
+    color: var(--text-hi); margin-bottom: 8px;
+  }
+
+  .value-card p { font-size: 13px; color: var(--text-lo); line-height: 1.65; }
+
+  .artifact-references { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+
+  .ref-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 13px; color: var(--text-lo); line-height: 1.65;
+  }
+
+  .ref-num {
+    font-size: 10px; font-weight: 700;
+    color: var(--gold); background: var(--gold-dim);
+    border: 1px solid rgba(212,168,83,0.2);
+    padding: 2px 8px; border-radius: 4px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  .ref-item a {
+    color: var(--teal); text-decoration: none;
+    border-bottom: 1px solid rgba(78,205,196,0.3);
+    transition: color 0.2s;
+  }
+
+  .ref-item a:hover { color: var(--gold); border-bottom-color: rgba(212,168,83,0.4); }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 12px; bottom: 12px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold) 0%, var(--teal) 60%, transparent 100%);
+    opacity: 0.3;
+  }
+
+  .job-card {
+    position: relative; margin-bottom: 24px;
+    background: var(--card); border: 1px solid var(--border2);
+    border-radius: 14px; padding: 30px 36px;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .job-card:hover {
+    border-color: rgba(212,168,83,0.28);
+    transform: translateX(6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .job-card::before {
+    content: '';
+    position: absolute; left: -40px; top: 32px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--gold);
+    box-shadow: 0 0 0 3px rgba(212,168,83,0.15), 0 0 12px rgba(212,168,83,0.2);
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .job-card:hover::before {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 4px rgba(78,205,196,0.15), 0 0 16px rgba(78,205,196,0.25);
+  }
+
+  .job-meta {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 5px;
+  }
+
+  .job-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--text-hi); letter-spacing: -0.3px;
+  }
+
+  .job-company {
+    font-size: 13px; font-weight: 500;
+    color: var(--teal); margin-bottom: 16px; letter-spacing: 0.2px;
+  }
+
+  .job-date {
+    font-size: 11px; font-weight: 600; letter-spacing: 1px;
+    color: var(--text-lo);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border2);
+    padding: 4px 12px; border-radius: 20px; white-space: nowrap;
+  }
+
+  .job-client {
+    font-size: 12px; color: var(--text-lo); margin-bottom: 16px;
+    padding: 6px 12px;
+    background: rgba(78,205,196,0.05);
+    border-left: 2px solid rgba(78,205,196,0.3);
+    border-radius: 4px;
+  }
+
+  .job-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .job-card li {
+    font-size: 14px; color: var(--text-lo);
+    padding-left: 20px; position: relative; line-height: 1.7;
+    transition: color 0.2s;
+  }
+
+  .job-card li:hover { color: var(--text-md); }
+
+  .job-card li::before {
+    content: '▸'; position: absolute; left: 0; top: 5px;
+    color: var(--gold); font-size: 9px; opacity: 0.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border2);
+    text-align: center;
+    padding: 44px 24px;
+    color: var(--text-lo);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  footer strong { color: var(--gold); font-weight: 500; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(.22,1,.36,1),
+                transform 0.75s cubic-bezier(.22,1,.36,1);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Stagger skill tags */
+  .skills-grid .skill-tag { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.25s, color 0.25s, box-shadow 0.25s; }
+  .skills-grid.animated .skill-tag { opacity: 1; transform: translateY(0); }
+
+  /* Stagger audience cards */
+  .audience-grid .audience-card { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s; }
+  .audience-grid.animated .audience-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+  .audience-grid.animated .audience-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.13s; }
+  .audience-grid.animated .audience-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.21s; }
+  .audience-grid.animated .audience-card:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.29s; }
+
+  /* Stagger job cards */
+  .timeline .job-card { opacity: 0; transform: translateX(-16px) translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.3s, box-shadow 0.3s; }
+  .timeline.animated .job-card:nth-child(1) { opacity: 1; transform: translateX(0) translateY(0); transition-delay: 0.05s; }
+  .timeline.animated .job-card:nth-child(2) { opacity: 1; transform: translateX(0) translateY(0); transition-delay: 0.15s; }
+  .timeline.animated .job-card:nth-child(3) { opacity: 1; transform: translateX(0) translateY(0); transition-delay: 0.25s; }
+  .timeline.animated .job-card:nth-child(4) { opacity: 1; transform: translateX(0) translateY(0); transition-delay: 0.35s; }
+
+  @media (max-width: 640px) {
+    .two-col, .audience-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 12px; overflow-x: auto; }
+    nav a { padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; }
+    .section-wrap { padding: 72px 22px; }
+    .artifact-header, .artifact-body { padding: 24px; }
+    .job-card { padding: 24px; }
+    .summary-card { padding: 28px; }
+  }
 </style>
 </head>
-
 <body>
 
+<!-- HERO -->
 <header>
-<h1>MANISA OJHA</h1>
-<p>Senior Software Developer</p>
-<p>Java | Spring Boot | Microservices | Banking & Insurance Systems</p>
+  <div class="header-content">
+    <div class="header-badge"><div class="badge-dot"></div>Portfolio 2026</div>
+    <h1>MANISA <span class="accent">OJHA</span></h1>
+    <p class="header-title">Senior Software Developer &nbsp;·&nbsp; 8+ Years in Banking &amp; Insurance</p>
+    <div class="header-stack">
+      <span>Java</span>
+      <span>Spring Boot</span>
+      <span>Microservices</span>
+      <span>Banking Systems</span>
+      <span>Insurance Systems</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
 </header>
 
-<section>
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#summary">Summary</a>
+  <a href="#skills">Skills</a>
+  <a href="#audience">Audience</a>
+  <a href="#artifact">Artifact</a>
+  <a href="#experience">Experience</a>
+</nav>
 
-<h2>Professional Summary</h2>
+<!-- THEME TOGGLE -->
+<button id="theme-toggle" aria-label="Toggle theme">
+  <span class="toggle-icon">☀️</span>
+  <span class="toggle-label">Light Mode</span>
+</button>
 
-<p>
-Senior Software Developer with 8+ years of experience in banking and insurance domains.
-Expertise in Java (8, 17), Spring Boot, REST APIs, Spring Batch, and OpenShift.
-Strong experience in microservices architecture, API integration, batch processing,
-and enterprise application development. Proven ability to deliver scalable solutions
-within tight deadlines and collaborate across cross-functional teams.
-</p>
-
-</section>
-
-<section>
-
-<h2>Technical Skills</h2>
-
-<div class="skills">
-
-<div class="skill">Java 8</div>
-<div class="skill">Java 17</div>
-<div class="skill">Spring</div>
-<div class="skill">Spring Boot</div>
-<div class="skill">Spring Batch</div>
-<div class="skill">REST APIs</div>
-<div class="skill">Microservices</div>
-<div class="skill">OpenShift</div>
-<div class="skill">Git</div>
-<div class="skill">Banking Systems</div>
-<div class="skill">Insurance Systems</div>
-<div class="skill">Claims Processing</div>
-<div class="skill">Reporting Systems</div>
-
+<!-- SUMMARY -->
+<div id="summary" class="section-wrap reveal">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Professional Summary</h2>
+  <div class="summary-card">
+    Senior Software Developer with 8+ years of experience in banking and insurance domains.
+    Expertise in Java (8, 17), Spring Boot, REST APIs, Spring Batch, and OpenShift.
+    Strong experience in microservices architecture, API integration, batch processing,
+    and enterprise application development. Proven ability to deliver scalable solutions
+    within tight deadlines and collaborate across cross-functional teams.
+  </div>
 </div>
 
-</section>
+<hr class="section-divider">
 
-  <section>
-
-    <section>
-
-<h2>Target Audience</h2>
-
-<p>
-This portfolio is intended for engineering managers, technical recruiters, faculty,
-students, and tech enthusiasts looking to explore my experience in software engineering,
-AI/ML, and cloud technologies.
-</p>
-
-<p>
-It serves industry professionals assessing my technical background, as well as learners
-and educators interested in modern backend systems, AI-driven applications, and thoughtful
-engineering leadership grounded in ethics and bias awareness.
-</p>
-
-</section>
-
-<h2>Artifact 1 - AI Lab Project – Educational Chatbot</h2>
-
-<div class="job">
-
-<h3>AI Learning Chatbot using Mizou</h3>
-
-<p>
-As part of an AI Lab project, I designed and tested an interactive educational chatbot using
-the Mizou AI chatbot platform. The goal of the project was to explore how conversational AI
-can support learning, simulate discussions, and provide guided explanations to users.
-</p>
-
-<p>
-The chatbot session created during this project can be viewed here:
-</p>
-
-<p>
-<a href="https://mizou.com/session-list?ID=128850" target="_blank">
-View Chatbot Session
-</a>
-</p>
-
-<p>
-Mizou is a no-code platform that allows educators and developers to build AI-powered
-chatbots for tutoring, role-playing scenarios, and interactive learning experiences.
-It enables users to design conversational flows, evaluate responses, and create
-realistic learning simulations.
-</p>
-
-<h4>What I Built</h4>
-
-<ul>
-<li>Designed an interactive chatbot session to guide users through structured AI conversations.</li>
-<li>Created prompts and conversational flows to simulate real learning interactions.</li>
-<li>Tested chatbot responses and refined prompts to improve clarity and engagement.</li>
-<li>Reviewed privacy policies and responsible AI use while working with the platform.</li>
-</ul>
-
-<h4>Process & Learning Experience</h4>
-
-<ul>
-<li>Explored how AI chatbots can support education and interactive learning.</li>
-<li>Iterated on chatbot prompts to improve response accuracy and conversation flow.</li>
-<li>Documented decisions, challenges, and improvements during development.</li>
-<li>Evaluated how AI tools can be integrated into learning and training environments.</li>
-</ul>
-
-
-
+<!-- SKILLS -->
+<div id="skills" class="section-wrap reveal">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-tag"><span>Java 8</span></div>
+    <div class="skill-tag"><span>Java 17</span></div>
+    <div class="skill-tag"><span>Spring</span></div>
+    <div class="skill-tag"><span>Spring Boot</span></div>
+    <div class="skill-tag"><span>Spring Batch</span></div>
+    <div class="skill-tag"><span>REST APIs</span></div>
+    <div class="skill-tag"><span>Microservices</span></div>
+    <div class="skill-tag"><span>OpenShift</span></div>
+    <div class="skill-tag"><span>Git</span></div>
+    <div class="skill-tag"><span>Banking Systems</span></div>
+    <div class="skill-tag"><span>Insurance Systems</span></div>
+    <div class="skill-tag"><span>Claims Processing</span></div>
+    <div class="skill-tag"><span>Reporting Systems</span></div>
+  </div>
 </div>
 
-</section>
+<hr class="section-divider">
 
-<section>
-
-<h2>Professional Experience</h2>
-
-<div class="job">
-
-<h3>Senior Software Developer</h3>
-<p><strong>Bank of America (Infosys Ltd), Seattle</strong></p>
-<p>Jul 2024 – Dec 2025</p>
-
-<ul>
-<li>Developed secure REST APIs for customer contact validation and system integrations.</li>
-<li>Implemented error handling, security best practices, and optimized verification workflows.</li>
-</ul>
-
+<!-- AUDIENCE -->
+<div id="audience" class="section-wrap reveal">
+  <div class="section-label">Intended For</div>
+  <h2 class="section-title">Target Audience</h2>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-icon">🏗️</div>
+      <h4>Engineering Managers</h4>
+      <p>Evaluating technical expertise in backend systems, architecture, and cross-functional team leadership.</p>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🔍</div>
+      <h4>Technical Recruiters</h4>
+      <p>Assessing hands-on experience with Java, Spring Boot, microservices, and enterprise platforms.</p>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🎓</div>
+      <h4>Faculty &amp; Students</h4>
+      <p>Exploring real-world applications of modern backend systems and AI-driven engineering practices.</p>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">💡</div>
+      <h4>Tech Enthusiasts</h4>
+      <p>Interested in ethical, bias-aware engineering leadership and cloud technology in production environments.</p>
+    </div>
+  </div>
+  <p style="color:var(--text-lo); font-size:14px; line-height:1.85; margin-top:8px;">
+    This portfolio serves industry professionals assessing my technical background, as well as learners
+    and educators interested in modern backend systems, AI-driven applications, and thoughtful
+    engineering leadership grounded in ethics and bias awareness.
+  </p>
 </div>
 
-<div class="job">
+<hr class="section-divider">
 
-<h3>Senior Software Developer</h3>
-<p><strong>Sapiens Technologies India Pvt. Ltd., Bangalore</strong></p>
-<p>May 2023 – Mar 2024</p>
+<!-- ARTIFACT -->
+<div id="artifact" class="section-wrap reveal">
+  <div class="section-label">Lab Project</div>
+  <h2 class="section-title">Artifact 1</h2>
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <div class="artifact-num">01</div>
+      <div>
+        <h3>AI Lab Project – Java Learning Bot</h3>
+        <p>Educational Chatbot built with Mizou AI Platform</p>
+      </div>
+    </div>
+    <div class="artifact-body">
 
-<ul>
-<li>Designed scalable architecture using Java, Spring Boot, and REST APIs for insurance products.</li>
-<li>Built wage calculation modules and batch processes using Spring Batch.</li>
-<li>Integrated NCCI claims data and delivered enhancements using Java 17.</li>
-<li>Mentored junior developers.</li>
-</ul>
+      <!-- INTRODUCTION -->
+      <div class="artifact-section-title">Introduction</div>
+      <p style="font-size:15px; color:var(--text-md); line-height:1.9; margin-bottom:18px;">
+        As part of the AIML 500 coursework, I designed and deployed an interactive
+        <strong style="color:var(--gold)">Java Learning Bot</strong> — an educational chatbot
+        built on the Mizou AI platform. This artifact represents my first hands-on exploration
+        of conversational AI as a teaching tool, bridging my background in software engineering
+        with emerging AI-driven learning technologies.
+      </p>
 
+      <!-- DESCRIPTION -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Description</div>
+        <p>The Java Learning Bot is an interactive, conversation-driven chatbot designed to guide
+        learners through core Java programming concepts. It simulates a tutoring session by
+        responding to user questions, explaining topics step by step, and reinforcing understanding
+        through follow-up prompts. The bot covers object-oriented programming, data types, control
+        flow structures, exception handling, and common Java interview questions, making it useful
+        for both beginners and intermediate-level developers seeking structured review.</p>
+      </div>
+
+      <!-- OBJECTIVE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Objective</div>
+        <p>The primary objective of this artifact was to explore how generative AI and no-code
+        chatbot platforms can be leveraged to create personalized, scalable learning experiences.
+        Specifically, the goals were to: design a functional AI-powered tutor for Java programming;
+        evaluate the effectiveness of prompt engineering in shaping educational conversations;
+        and assess how responsible AI principles including privacy and bias awareness and its applicaiton
+        in an educational deployment context.</p>
+      </div>
+
+      <!-- PROCESS -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Process</div>
+        <div class="two-col">
+          <div class="list-block">
+            <h4>What I Built</h4>
+            <ul>
+              <li>Designed an interactive chatbot session to guide users through structured Java learning conversations.</li>
+              <li>Created prompts and conversational flows to simulate real tutoring interactions.</li>
+              <li>Tested chatbot responses across multiple Java topics and refined prompts to improve clarity and engagement.</li>
+              <li>Reviewed Mizou's privacy policies and evaluated responsible AI use in an educational context.</li>
+            </ul>
+          </div>
+          <div class="list-block">
+            <h4>Iteration & Refinement</h4>
+            <ul>
+              <li>Explored how AI chatbots can supplement traditional learning and support self-paced study.</li>
+              <li>Iterated on chatbot prompts to improve response accuracy, depth, and conversational flow.</li>
+              <li>Documented design decisions, challenges encountered, and improvements made at each stage.</li>
+              <li>Evaluated how AI tools like this can be integrated into onboarding and training environments at scale.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOLS & TECHNOLOGIES -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Tools &amp; Technologies Used</div>
+        <div class="artifact-tools">
+          <span class="artifact-tool">Mizou AI Platform</span>
+          <span class="artifact-tool">Prompt Engineering</span>
+          <span class="artifact-tool">Conversational AI</span>
+          <span class="artifact-tool">No-Code Chatbot Builder</span>
+          <span class="artifact-tool">Java (Subject Domain)</span>
+          <span class="artifact-tool">Responsible AI Principles</span>
+        </div>
+        <p style="margin-top:14px; font-size:13.5px; color:var(--text-lo); line-height:1.8;">
+          <strong style="color:var(--text-md)">Mizou</strong> is a no-code AI chatbot platform built
+          for educators. It enables the creation of role-playing bots, tutoring assistants, and
+          interactive learning simulations without requiring programming knowledge allowing the
+          focus to remain on instructional design and prompt quality.
+        </p>
+      </div>
+
+      <!-- VALUE PROPOSITION + UNIQUE VALUE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Value Proposition &amp; Unique Value</div>
+        <div class="artifact-value-grid">
+          <div class="value-card">
+            <h5>💡 Value Proposition</h5>
+            <p>The Java Learning Bot provides an always-available, patient, and personalized
+            tutoring experience removing barriers of time, cost, and access that often prevent
+            learners from getting timely help. It demonstrates how AI can democratize technical
+            education by meeting learners where they are, at their own pace.</p>
+          </div>
+          <div class="value-card">
+            <h5>⭐ Unique Value</h5>
+            <p>Unlike static documentation or video tutorials, this bot engages in two-way
+            dialogue, adapts to follow-up questions, and reinforces concepts dynamically.
+            Built by a practising Java engineer, the prompts reflect real-world accuracy
+            and industry-relevant content and not generic textbook explanations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELEVANCE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Relevance</div>
+        <p>This artifact is directly relevant to the AIML 500 course themes of applied AI,
+        responsible technology use, and human-centred design. As a Senior Software Developer
+        with deep Java expertise, building an AI tutoring tool around my core domain allowed
+        me to apply AI concepts to a real, high-value use case. It also reflects the growing
+        industry trend of AI-augmented developer onboarding and continuous learning and skills
+        that are increasingly critical in modern engineering organizations.</p>
+      </div>
+
+      <!-- REFERENCES -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">References</div>
+        <div class="artifact-references">
+          <div class="ref-item">
+            <span class="ref-num">01</span>
+            <span>Mizou AI Platform — Chatbot session created for this artifact:
+              <a href="https://mizou.com/session-list?ID=128850" target="_blank">mizou.com/session-list?ID=128850</a>
+            </span>
+          </div>
+          <div class="ref-item">
+            <span class="ref-num">02</span>
+            <span>Mizou Official Website — Platform overview and educator resources:
+              <a href="https://mizou.com" target="_blank">mizou.com</a>
+            </span>
+          </div>
+          <div class="ref-item">
+            <span class="ref-num">03</span>
+            <span>Oracle Java Documentation — Reference for Java programming concepts covered in the bot:
+              <a href="https://docs.oracle.com/en/java/" target="_blank">docs.oracle.com/en/java</a>
+            </span>
+          </div>
+          <div class="ref-item">
+            <span class="ref-num">04</span>
+            <span>Anthropic &amp; OpenAI — Foundational research on responsible AI and prompt engineering principles applied throughout this project.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SESSION LINK -->
+      <div class="artifact-section">
+        <a class="artifact-link" href="https://mizou.com/session-list?ID=128850" target="_blank">
+          <span>View Live Chatbot Session →</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<div class="job">
+<hr class="section-divider">
 
-<h3>Software Developer</h3>
-<p><strong>FIS Global, Bangalore</strong></p>
-<p>Dec 2021 – Apr 2023</p>
+<!-- EXPERIENCE -->
+<div id="experience" class="section-wrap reveal">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="timeline">
 
-<ul>
-<li>Developed account opening application and REST APIs using Spring framework.</li>
-<li>Deployed microservices on OpenShift with CI/CD pipelines.</li>
-<li>Enabled multi-client customization across enterprise systems.</li>
-</ul>
+    <div class="job-card">
+      <div class="job-meta">
+        <h3>Senior Software Developer</h3>
+        <div class="job-date">Jul 2024 – Dec 2025</div>
+      </div>
+      <div class="job-company">Bank of America (Infosys Ltd) · Seattle</div>
+      <ul>
+        <li>Developed secure REST APIs for customer contact validation and system integrations.</li>
+        <li>Implemented error handling, security best practices, and optimized verification workflows.</li>
+      </ul>
+    </div>
 
+    <div class="job-card">
+      <div class="job-meta">
+        <h3>Senior Software Developer</h3>
+        <div class="job-date">May 2023 – Mar 2024</div>
+      </div>
+      <div class="job-company">Sapiens Technologies India Pvt. Ltd. · Bangalore</div>
+      <ul>
+        <li>Designed scalable architecture using Java, Spring Boot, and REST APIs for insurance products.</li>
+        <li>Built wage calculation modules and batch processes using Spring Batch.</li>
+        <li>Integrated NCCI claims data and delivered enhancements using Java 17.</li>
+        <li>Mentored junior developers.</li>
+      </ul>
+    </div>
+
+    <div class="job-card">
+      <div class="job-meta">
+        <h3>Software Developer</h3>
+        <div class="job-date">Dec 2021 – Apr 2023</div>
+      </div>
+      <div class="job-company">FIS Global · Bangalore</div>
+      <ul>
+        <li>Developed account opening application and REST APIs using Spring framework.</li>
+        <li>Deployed microservices on OpenShift with CI/CD pipelines.</li>
+        <li>Enabled multi-client customization across enterprise systems.</li>
+      </ul>
+    </div>
+
+    <div class="job-card">
+      <div class="job-meta">
+        <h3>Software Developer</h3>
+        <div class="job-date">Sep 2015 – Dec 2021</div>
+      </div>
+      <div class="job-company">TCS Bancs · Bangalore</div>
+      <div class="job-client">Client: PostFinance, Switzerland &nbsp;·&nbsp; Nov 2018 – Oct 2020</div>
+      <ul>
+        <li>Enhanced reporting solutions using Java 8 and Spring Batch.</li>
+        <li>Developed bulk data processing jobs and retry mechanisms.</li>
+        <li>Supported 9 quarterly releases.</li>
+      </ul>
+    </div>
+
+  </div>
 </div>
 
-<div class="job">
-
-<h3>Software Developer</h3>
-<p><strong>TCS Bancs, Bangalore</strong></p>
-<p>Sep 2015 – Dec 2021</p>
-
-<p><strong>Client:</strong> PostFinance, Switzerland</p>
-<p>Nov 2018 – Oct 2020</p>
-
-<ul>
-<li>Enhanced reporting solutions using Java 8 and Spring Batch.</li>
-<li>Developed bulk data processing jobs and retry mechanisms.</li>
-<li>Supported 9 quarterly releases.</li>
-</ul>
-
-</div>
-
-</section>
-
+<!-- FOOTER -->
 <footer>
-
-<p>© 2026 Manisa Ojha | Software Engineering Portfolio</p>
-
+  <p>© 2026 <strong>Manisa Ojha</strong> &nbsp;·&nbsp; Software Engineering Portfolio</p>
 </footer>
+
+<script>
+  /* ── Section reveal (sections + summary/artifact/skills) ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -48px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* ── Stagger skills on section enter ── */
+  const skillsSection = document.getElementById('skills');
+  const skillsGrid = skillsSection.querySelector('.skills-grid');
+  const skillTags = skillsGrid.querySelectorAll('.skill-tag');
+
+  const skillObs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    skillsGrid.classList.add('animated');
+    skillTags.forEach((t, i) => {
+      t.style.transitionDelay = (i * 0.04) + 's';
+    });
+    skillObs.disconnect();
+  }, { threshold: 0.1 });
+  skillObs.observe(skillsSection);
+
+  /* ── Stagger audience cards ── */
+  const audGrid = document.querySelector('.audience-grid');
+  const audObs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    audGrid.classList.add('animated');
+    audObs.disconnect();
+  }, { threshold: 0.1 });
+  audObs.observe(audGrid);
+
+  /* ── Stagger timeline cards ── */
+  const timeline = document.querySelector('.timeline');
+  const tlObs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    timeline.classList.add('animated');
+    tlObs.disconnect();
+  }, { threshold: 0.05 });
+  tlObs.observe(timeline);
+
+  /* ── Theme toggle ── */
+  const toggleBtn = document.getElementById('theme-toggle');
+  const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+  const toggleLabel = toggleBtn.querySelector('.toggle-label');
+
+  const applyTheme = (isLight) => {
+    document.documentElement.classList.toggle('light', isLight);
+    toggleIcon.textContent = isLight ? '🌙' : '☀️';
+    toggleLabel.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
+  // Restore saved preference
+  applyTheme(localStorage.getItem('theme') === 'light');
+
+  toggleBtn.addEventListener('click', () => {
+    applyTheme(!document.documentElement.classList.contains('light'));
+  });
+
+  /* ── Nav: shadow + active link highlight ── */
+  const nav = document.getElementById('main-nav');
+  const sections = [...document.querySelectorAll('div[id]')];
+  const navLinks = [...document.querySelectorAll('nav a')];
+
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 140) cur = s.id;
+    });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
 
 </body>
 </html>
