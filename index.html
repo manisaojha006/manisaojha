@@ -23,7 +23,6 @@
     --text-lo:  #6e7a95;
   }
 
-  /* ── LIGHT THEME ── */
   html.light {
     --bg:       #f5f3ee;
     --surface:  #edeae3;
@@ -620,7 +619,7 @@
 
   .ref-item a:hover { color: var(--gold); border-bottom-color: rgba(212,168,83,0.4); }
 
-  /* ── COMPARISON TABLE (Artifact 2) ── */
+  /* ── COMPARISON TABLE ── */
   .compare-table {
     width: 100%; border-collapse: collapse;
     margin-top: 4px; font-size: 13.5px;
@@ -653,7 +652,7 @@
   .compare-table td.ml-col { border-left: 2px solid rgba(212,168,83,0.18); }
   .compare-table td.dl-col { border-left: 2px solid rgba(78,205,196,0.18); }
 
-  /* ── EXAMPLE BLOCKS (Artifact 2) ── */
+  /* ── EXAMPLE BLOCKS ── */
   .example-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 4px; }
 
   .example-block {
@@ -700,7 +699,7 @@
   .algo-ml { background: var(--gold-dim); border: 1px solid rgba(212,168,83,0.25); color: var(--gold); }
   .algo-dl { background: var(--teal-dim); border: 1px solid rgba(78,205,196,0.25); color: var(--teal); }
 
-  /* ── CALLOUT BOX (Artifact 2) ── */
+  /* ── CALLOUT BOX ── */
   .callout-box {
     background: linear-gradient(135deg, rgba(212,168,83,0.06), rgba(78,205,196,0.04));
     border: 1px solid var(--border2);
@@ -713,8 +712,191 @@
   }
 
   .callout-box:hover { border-left-color: var(--teal); }
-
   .callout-box strong { color: var(--gold); }
+
+  /* ── NEURAL NETWORK DIAGRAM (Artifact 3) ── */
+  .nn-diagram-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    padding: 32px 24px 24px;
+    margin-top: 4px;
+    overflow-x: auto;
+  }
+
+  .nn-diagram-caption {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-lo);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  /* ── LAYER BREAKDOWN ── */
+  .nn-layers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .nn-layer-card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 22px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+
+  .nn-layer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.28);
+  }
+
+  .nn-layer-card.input-layer  { border-top: 2px solid var(--gold); }
+  .nn-layer-card.hidden-layer { border-top: 2px solid var(--teal); }
+  .nn-layer-card.output-layer { border-top: 2px solid var(--rose); }
+
+  .nn-layer-card.input-layer:hover  { border-color: var(--gold); border-top-color: var(--gold); }
+  .nn-layer-card.hidden-layer:hover { border-color: var(--teal); border-top-color: var(--teal); }
+  .nn-layer-card.output-layer:hover { border-color: var(--rose); border-top-color: var(--rose); }
+
+  .nn-layer-label {
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .input-layer  .nn-layer-label { color: var(--gold); }
+  .hidden-layer .nn-layer-label { color: var(--teal); }
+  .output-layer .nn-layer-label { color: var(--rose); }
+
+  .nn-layer-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--text-hi); margin-bottom: 8px;
+  }
+
+  .nn-layer-card p {
+    font-size: 13px; color: var(--text-lo); line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* ── ANALOGY BLOCK ── */
+  .analogy-block {
+    background: linear-gradient(135deg, rgba(78,205,196,0.05), rgba(212,168,83,0.04));
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-top: 4px;
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    transition: border-color 0.25s;
+  }
+
+  .analogy-block:hover { border-color: rgba(78,205,196,0.28); }
+
+  .analogy-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 4px;
+  }
+
+  .analogy-block h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--text-hi); margin-bottom: 8px;
+  }
+
+  .analogy-block p {
+    font-size: 14px; color: var(--text-lo);
+    line-height: 1.8; margin-bottom: 0;
+  }
+
+  /* ── KEY CONCEPTS GRID ── */
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .concept-card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    padding: 18px 18px;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+  }
+
+  .concept-card:hover {
+    border-color: rgba(212,168,83,0.3);
+    transform: translateY(-2px);
+  }
+
+  .concept-term {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 7px;
+    display: block;
+  }
+
+  .concept-card p {
+    font-size: 13px; color: var(--text-lo);
+    line-height: 1.65; margin-bottom: 0;
+  }
+
+  /* ── USE CASES THREE-COL ── */
+  .use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .use-case-card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    padding: 20px 18px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    position: relative; overflow: hidden;
+  }
+
+  .use-case-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--teal));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .use-case-card:hover {
+    border-color: rgba(78,205,196,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  .use-case-card:hover::after { transform: scaleX(1); }
+
+  .use-case-icon { font-size: 24px; margin-bottom: 10px; }
+
+  .use-case-card h5 {
+    font-size: 13px; font-weight: 600;
+    color: var(--text-hi); margin-bottom: 6px;
+  }
+
+  .use-case-card p {
+    font-size: 12.5px; color: var(--text-lo);
+    line-height: 1.6; margin-bottom: 0;
+  }
 
   /* ── TIMELINE ── */
   .timeline { position: relative; padding-left: 32px; }
@@ -845,7 +1027,9 @@
   .timeline.animated .job-card:nth-child(4) { opacity: 1; transform: translateX(0) translateY(0); transition-delay: 0.35s; }
 
   @media (max-width: 640px) {
-    .two-col, .audience-grid, .example-blocks, .artifact-value-grid { grid-template-columns: 1fr; }
+    .two-col, .audience-grid, .example-blocks, .artifact-value-grid,
+    .nn-layers, .use-case-grid { grid-template-columns: 1fr; }
+    .concepts-grid { grid-template-columns: 1fr 1fr; }
     nav { padding: 0 12px; overflow-x: auto; }
     nav a { padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; }
     .section-wrap { padding: 72px 22px; }
@@ -854,6 +1038,7 @@
     .summary-card { padding: 28px; }
     .compare-table { font-size: 12px; }
     .compare-table th, .compare-table td { padding: 10px 12px; }
+    .analogy-block { flex-direction: column; }
   }
 </style>
 </head>
@@ -887,7 +1072,7 @@
 
 <!-- THEME TOGGLE -->
 <button id="theme-toggle" aria-label="Toggle theme">
-  <span class="toggle-icon">☀️</span>
+  <span class="toggle-icon">&#9728;&#65039;</span>
   <span class="toggle-label">Light Mode</span>
 </button>
 
@@ -935,22 +1120,22 @@
   <h2 class="section-title">Target Audience</h2>
   <div class="audience-grid">
     <div class="audience-card">
-      <div class="audience-icon">🏗️</div>
+      <div class="audience-icon">&#127959;&#65039;</div>
       <h4>Engineering Managers</h4>
       <p>Evaluating technical expertise in backend systems, architecture, and cross-functional team leadership.</p>
     </div>
     <div class="audience-card">
-      <div class="audience-icon">🔍</div>
+      <div class="audience-icon">&#128269;</div>
       <h4>Technical Recruiters</h4>
       <p>Assessing hands-on experience with Java, Spring Boot, microservices, and enterprise platforms.</p>
     </div>
     <div class="audience-card">
-      <div class="audience-icon">🎓</div>
+      <div class="audience-icon">&#127891;</div>
       <h4>Faculty &amp; Students</h4>
       <p>Exploring real-world applications of modern backend systems and AI-driven engineering practices.</p>
     </div>
     <div class="audience-card">
-      <div class="audience-icon">💡</div>
+      <div class="audience-icon">&#128161;</div>
       <h4>Tech Enthusiasts</h4>
       <p>Interested in ethical, bias-aware engineering leadership and cloud technology in production environments.</p>
     </div>
@@ -1053,14 +1238,14 @@
         <div class="artifact-section-title">Value Proposition &amp; Unique Value</div>
         <div class="artifact-value-grid">
           <div class="value-card">
-            <h5>💡 Value Proposition</h5>
+            <h5>&#128161; Value Proposition</h5>
             <p>The Java Learning Bot provides an always-available, patient, and personalized
             tutoring experience removing barriers of time, cost, and access that often prevent
             learners from getting timely help. It demonstrates how AI can democratize technical
             education by meeting learners where they are, at their own pace.</p>
           </div>
           <div class="value-card">
-            <h5>⭐ Unique Value</h5>
+            <h5>&#11088; Unique Value</h5>
             <p>Unlike static documentation or video tutorials, this bot engages in two-way
             dialogue, adapts to follow-up questions, and reinforces concepts dynamically.
             Built by a practising Java engineer, the prompts reflect real-world accuracy
@@ -1109,7 +1294,7 @@
 
       <div class="artifact-section">
         <a class="artifact-link" href="https://mizou.com/session-list?ID=128850" target="_blank">
-          <span>View Live Chatbot Session →</span>
+          <span>View Live Chatbot Session &#8594;</span>
         </a>
       </div>
 
@@ -1133,7 +1318,6 @@
     </div>
     <div class="artifact-body">
 
-      <!-- INTRODUCTION -->
       <div class="artifact-section-title">Introduction</div>
       <p style="font-size:15px; color:var(--text-md); line-height:1.9; margin-bottom:18px;">
         As part of the AIML 500 coursework, this written analysis explores a foundational question
@@ -1143,7 +1327,6 @@
         artifact examines how problem structure dictates the most appropriate modelling approach.
       </p>
 
-      <!-- DESCRIPTION -->
       <div class="artifact-section">
         <div class="artifact-section-title">Description</div>
         <p>This artifact presents a comparative analysis of machine learning and deep learning,
@@ -1155,7 +1338,6 @@
         best matched to the nature and structure of the problem.</p>
       </div>
 
-      <!-- OBJECTIVE -->
       <div class="artifact-section">
         <div class="artifact-section-title">Objective</div>
         <p>The objective of this artifact is to demonstrate critical thinking about AI model
@@ -1167,12 +1349,11 @@
         to the most advanced tool available.</p>
       </div>
 
-      <!-- EXAMPLES -->
       <div class="artifact-section">
         <div class="artifact-section-title">Examples Analysed</div>
         <div class="example-blocks">
           <div class="example-block ml-example">
-            <div class="example-block-label">Example 1 · Machine Learning</div>
+            <div class="example-block-label">Example 1 &middot; Machine Learning</div>
             <h5>Email Spam Detection</h5>
             <p>Used by Gmail and Outlook to filter unwanted messages. Models analyze structured
             features — word frequency, suspicious links, sender reputation, and formatting
@@ -1183,7 +1364,7 @@
             </div>
           </div>
           <div class="example-block dl-example">
-            <div class="example-block-label">Example 2 · Deep Learning</div>
+            <div class="example-block-label">Example 2 &middot; Deep Learning</div>
             <h5>Machine Translation (Google Translate)</h5>
             <p>Processes entire sentences as sequences, capturing grammar, context, and meaning
             across word relationships. Handles idioms, word order variations, and contextual
@@ -1196,7 +1377,6 @@
         </div>
       </div>
 
-      <!-- COMPARISON TABLE -->
       <div class="artifact-section">
         <div class="artifact-section-title">Side-by-Side Comparison</div>
         <table class="compare-table">
@@ -1208,46 +1388,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Problem Type</td>
-              <td class="ml-col">Structured, binary classification</td>
-              <td class="dl-col">Unstructured, sequential, generative</td>
-            </tr>
-            <tr>
-              <td>Data Requirements</td>
-              <td class="ml-col">Moderate labeled datasets</td>
-              <td class="dl-col">Very large datasets</td>
-            </tr>
-            <tr>
-              <td>Feature Handling</td>
-              <td class="ml-col">Predefined, hand-engineered features</td>
-              <td class="dl-col">Learns features automatically from raw data</td>
-            </tr>
-            <tr>
-              <td>Compute Cost</td>
-              <td class="ml-col">Low — efficient and fast to retrain</td>
-              <td class="dl-col">High — GPUs, longer training cycles</td>
-            </tr>
-            <tr>
-              <td>Interpretability</td>
-              <td class="ml-col">High — results are explainable</td>
-              <td class="dl-col">Lower — often a "black box"</td>
-            </tr>
-            <tr>
-              <td>Context Capture</td>
-              <td class="ml-col">Limited — fixed inputs, no sequences</td>
-              <td class="dl-col">Strong — attention spans entire sentences</td>
-            </tr>
-            <tr>
-              <td>Best For</td>
-              <td class="ml-col">Spam detection, fraud, classification</td>
-              <td class="dl-col">Translation, image recognition, NLP</td>
-            </tr>
+            <tr><td>Problem Type</td><td class="ml-col">Structured, binary classification</td><td class="dl-col">Unstructured, sequential, generative</td></tr>
+            <tr><td>Data Requirements</td><td class="ml-col">Moderate labeled datasets</td><td class="dl-col">Very large datasets</td></tr>
+            <tr><td>Feature Handling</td><td class="ml-col">Predefined, hand-engineered features</td><td class="dl-col">Learns features automatically from raw data</td></tr>
+            <tr><td>Compute Cost</td><td class="ml-col">Low — efficient and fast to retrain</td><td class="dl-col">High — GPUs, longer training cycles</td></tr>
+            <tr><td>Interpretability</td><td class="ml-col">High — results are explainable</td><td class="dl-col">Lower — often a "black box"</td></tr>
+            <tr><td>Context Capture</td><td class="ml-col">Limited — fixed inputs, no sequences</td><td class="dl-col">Strong — attention spans entire sentences</td></tr>
+            <tr><td>Best For</td><td class="ml-col">Spam detection, fraud, classification</td><td class="dl-col">Translation, image recognition, NLP</td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- PROCESS -->
       <div class="artifact-section">
         <div class="artifact-section-title">Analysis &amp; Key Findings</div>
         <div class="two-col">
@@ -1272,7 +1423,6 @@
         </div>
       </div>
 
-      <!-- TOOLS & TECHNOLOGIES -->
       <div class="artifact-section">
         <div class="artifact-section-title">Concepts &amp; Technologies Referenced</div>
         <div class="artifact-tools">
@@ -1288,7 +1438,6 @@
         </div>
       </div>
 
-      <!-- CONCLUSION / VALUE PROPOSITION -->
       <div class="artifact-section">
         <div class="artifact-section-title">Conclusion &amp; Value Proposition</div>
         <div class="callout-box">
@@ -1304,18 +1453,17 @@
         </div>
       </div>
 
-      <!-- UNIQUE VALUE -->
       <div class="artifact-section">
         <div class="artifact-section-title">Unique Value</div>
         <div class="artifact-value-grid">
           <div class="value-card">
-            <h5>🔧 Engineering Perspective</h5>
+            <h5>&#128295; Engineering Perspective</h5>
             <p>Written from the viewpoint of a practising software developer, this analysis
             connects theoretical AI concepts to the real architectural decisions engineers
             face when selecting technologies for production systems.</p>
           </div>
           <div class="value-card">
-            <h5>📐 Principle-Driven Thinking</h5>
+            <h5>&#128208; Principle-Driven Thinking</h5>
             <p>Rather than advocating for the "newest" or most popular model, the analysis
             models the kind of pragmatic, cost-aware decision-making that drives effective
             AI adoption in enterprise environments.</p>
@@ -1323,7 +1471,6 @@
         </div>
       </div>
 
-      <!-- RELEVANCE -->
       <div class="artifact-section">
         <div class="artifact-section-title">Relevance</div>
         <p>This artifact is relevant to the AIML 500 course themes of applied AI, model selection,
@@ -1335,31 +1482,404 @@
         in production engineering environments.</p>
       </div>
 
+      <div class="artifact-section">
+        <div class="artifact-section-title">References</div>
+        <div class="artifact-references">
+          <div class="ref-item"><span class="ref-num">01</span><span>Google Translate — Machine translation product referenced as a real-world deep learning application: <a href="https://translate.google.com" target="_blank">translate.google.com</a></span></div>
+          <div class="ref-item"><span class="ref-num">02</span><span>Vaswani et al. (2017) — "Attention Is All You Need" — foundational Transformer architecture paper underpinning BERT and GPT models.</span></div>
+          <div class="ref-item"><span class="ref-num">03</span><span>Scikit-learn Documentation — Reference for Naive Bayes and Random Forest algorithms: <a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn.org</a></span></div>
+          <div class="ref-item"><span class="ref-num">04</span><span>Google AI Blog — Overview of ML approaches used in Gmail spam filtering and NLP research: <a href="https://ai.googleblog.com" target="_blank">ai.googleblog.com</a></span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ARTIFACT 3 -->
+<div id="artifact3" class="section-wrap reveal">
+  <div class="section-label">Conceptual Explainer</div>
+  <h2 class="section-title">Artifact 3</h2>
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <div class="artifact-num">03</div>
+      <div>
+        <h3>Neural Networks Explained Simply</h3>
+        <p>A Plain-Language Guide to How Machines Learn — AIML 500 Coursework</p>
+      </div>
+    </div>
+    <div class="artifact-body">
+
+      <!-- INTRODUCTION -->
+      <div class="artifact-section-title">Introduction</div>
+      <p style="font-size:15px; color:var(--text-md); line-height:1.9; margin-bottom:18px;">
+        Neural networks are the engine behind some of the most powerful AI systems in use today —
+        from the voice assistant on your phone to the models that detect cancer in medical scans.
+        Yet the concept itself is more intuitive than it might first appear.
+        This artifact provides a <strong style="color:var(--gold)">clear, jargon-free explanation</strong>
+        of what neural networks are, how they work, why they learn, and where they are applied —
+        grounded in everyday analogies that make the ideas stick.
+      </p>
+
+      <!-- THE CORE IDEA -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">The Core Idea — What Is a Neural Network?</div>
+        <p>A neural network is a system that learns from examples. You show it thousands of labelled
+        inputs — pictures of cats and dogs, emails marked spam or not, audio clips with their
+        transcriptions — and it gradually adjusts itself until it can make accurate predictions
+        on data it has never seen before. It does not follow hand-written rules. It discovers its
+        own patterns through repeated exposure and correction.</p>
+        <p style="margin-top:14px;">The name comes from the human brain. Biological neurons are cells that fire electrical signals
+        to one another. A neural network mimics this loosely: it is made up of many simple
+        computational units — also called neurons or nodes — connected together in layers,
+        each passing information forward and adjusting the strength of those connections
+        based on how well it is doing.</p>
+      </div>
+
+      <!-- ANALOGY -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">The Best Analogy — Learning to Recognise Handwriting</div>
+        <div class="analogy-block">
+          <div class="analogy-icon">&#9999;&#65039;</div>
+          <div>
+            <h5>Imagine you are learning to grade handwritten numbers</h5>
+            <p>At first you have no idea. Someone shows you a "7" and tells you it is a seven. You
+            notice some features: it has an angled stroke, a horizontal bar at the top, no loops.
+            You see a thousand more examples — some sloppy, some neat, some rotated — and each time
+            you are told whether you were right or wrong. Over time, your internal sense of "what
+            makes a 7 a 7" sharpens. A neural network does exactly this, except instead of a human
+            adjusting their intuition, the network adjusts millions of numerical weights — tiny dials
+            that control how strongly one neuron influences the next — until its predictions match
+            the correct answers as closely as possible.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYERS BREAKDOWN -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">The Three Layers — Input, Hidden, Output</div>
+        <p style="margin-bottom:16px;">Every neural network is organised into layers. Data enters at the left, passes through
+        one or more hidden layers where the actual learning happens, and exits as a prediction at the right.</p>
+        <div class="nn-layers">
+          <div class="nn-layer-card input-layer">
+            <div class="nn-layer-label">Layer 1</div>
+            <h5>Input Layer</h5>
+            <p>Receives the raw data. For an image, each neuron in this layer represents one pixel.
+            For a loan application, each neuron might represent one field — age, income, credit score.
+            No learning happens here; this layer simply passes the data in.</p>
+          </div>
+          <div class="nn-layer-card hidden-layer">
+            <div class="nn-layer-label">Layer 2 &nbsp;(one or many)</div>
+            <h5>Hidden Layer(s)</h5>
+            <p>This is where the intelligence lives. Each neuron combines signals from the previous layer,
+            applies a weight to each one, sums them up, and decides how much signal to pass forward.
+            Deep networks stack many hidden layers — each one learning more abstract features
+            than the last: edges, then shapes, then objects.</p>
+          </div>
+          <div class="nn-layer-card output-layer">
+            <div class="nn-layer-label">Layer 3</div>
+            <h5>Output Layer</h5>
+            <p>Produces the final answer. For image classification it might output probabilities —
+            "92% cat, 8% dog." For a translation task it outputs a sequence of words.
+            For fraud detection it outputs a single number: the probability of fraud.</p>
+          </div>
+        </div>
+
+        <!-- SVG DIAGRAM -->
+        <div class="nn-diagram-wrap" style="margin-top:20px;">
+          <svg viewBox="0 0 560 220" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+            <defs>
+              <marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M1 1L7 4L1 7" fill="none" stroke="#2a3558" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+
+            <!-- Connection lines INPUT -> HIDDEN -->
+            <g opacity="0.22" stroke="#d4a853" stroke-width="0.9" fill="none">
+              <!-- from input nodes (y: 55,95,135,175) to hidden1 nodes (y: 65,105,145) -->
+              <line x1="88" y1="55"  x2="200" y2="65"/>  <line x1="88" y1="55"  x2="200" y2="105"/> <line x1="88" y1="55"  x2="200" y2="145"/>
+              <line x1="88" y1="95"  x2="200" y2="65"/>  <line x1="88" y1="95"  x2="200" y2="105"/> <line x1="88" y1="95"  x2="200" y2="145"/>
+              <line x1="88" y1="135" x2="200" y2="65"/>  <line x1="88" y1="135" x2="200" y2="105"/> <line x1="88" y1="135" x2="200" y2="145"/>
+              <line x1="88" y1="175" x2="200" y2="65"/>  <line x1="88" y1="175" x2="200" y2="105"/> <line x1="88" y1="175" x2="200" y2="145"/>
+            </g>
+            <!-- Connection lines HIDDEN1 -> HIDDEN2 -->
+            <g opacity="0.22" stroke="#4ecdc4" stroke-width="0.9" fill="none">
+              <line x1="220" y1="65"  x2="332" y2="65"/>  <line x1="220" y1="65"  x2="332" y2="105"/> <line x1="220" y1="65"  x2="332" y2="145"/>
+              <line x1="220" y1="105" x2="332" y2="65"/>  <line x1="220" y1="105" x2="332" y2="105"/> <line x1="220" y1="105" x2="332" y2="145"/>
+              <line x1="220" y1="145" x2="332" y2="65"/>  <line x1="220" y1="145" x2="332" y2="105"/> <line x1="220" y1="145" x2="332" y2="145"/>
+            </g>
+            <!-- Connection lines HIDDEN2 -> OUTPUT -->
+            <g opacity="0.22" stroke="#e8887a" stroke-width="0.9" fill="none">
+              <line x1="352" y1="65"  x2="462" y2="90"/>  <line x1="352" y1="65"  x2="462" y2="130"/>
+              <line x1="352" y1="105" x2="462" y2="90"/>  <line x1="352" y1="105" x2="462" y2="130"/>
+              <line x1="352" y1="145" x2="462" y2="90"/>  <line x1="352" y1="145" x2="462" y2="130"/>
+            </g>
+
+            <!-- INPUT NODES -->
+            <g fill="#111829" stroke="#d4a853" stroke-width="1.5">
+              <circle cx="88" cy="55"  r="16"/>
+              <circle cx="88" cy="95"  r="16"/>
+              <circle cx="88" cy="135" r="16"/>
+              <circle cx="88" cy="175" r="16"/>
+            </g>
+            <!-- INPUT labels -->
+            <g fill="#d4a853" font-family="DM Sans,sans-serif" font-size="8.5" text-anchor="middle" font-weight="600">
+              <text x="88" y="58">x1</text>
+              <text x="88" y="98">x2</text>
+              <text x="88" y="138">x3</text>
+              <text x="88" y="178">x4</text>
+            </g>
+
+            <!-- HIDDEN 1 NODES -->
+            <g fill="#111829" stroke="#4ecdc4" stroke-width="1.5">
+              <circle cx="210" cy="65"  r="16"/>
+              <circle cx="210" cy="105" r="16"/>
+              <circle cx="210" cy="145" r="16"/>
+            </g>
+            <g fill="#4ecdc4" font-family="DM Sans,sans-serif" font-size="8.5" text-anchor="middle" font-weight="600">
+              <text x="210" y="68">h1</text>
+              <text x="210" y="108">h2</text>
+              <text x="210" y="148">h3</text>
+            </g>
+
+            <!-- HIDDEN 2 NODES -->
+            <g fill="#111829" stroke="#4ecdc4" stroke-width="1.5">
+              <circle cx="342" cy="65"  r="16"/>
+              <circle cx="342" cy="105" r="16"/>
+              <circle cx="342" cy="145" r="16"/>
+            </g>
+            <g fill="#4ecdc4" font-family="DM Sans,sans-serif" font-size="8.5" text-anchor="middle" font-weight="600">
+              <text x="342" y="68">h4</text>
+              <text x="342" y="108">h5</text>
+              <text x="342" y="148">h6</text>
+            </g>
+
+            <!-- OUTPUT NODES -->
+            <g fill="#111829" stroke="#e8887a" stroke-width="1.5">
+              <circle cx="472" cy="90"  r="16"/>
+              <circle cx="472" cy="130" r="16"/>
+            </g>
+            <g fill="#e8887a" font-family="DM Sans,sans-serif" font-size="8" text-anchor="middle" font-weight="600">
+              <text x="472" y="93">y1</text>
+              <text x="472" y="133">y2</text>
+            </g>
+
+            <!-- Column Labels -->
+            <g font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.5" text-anchor="middle">
+              <text x="88"  y="205" fill="#d4a853" opacity="0.7">INPUT</text>
+              <text x="275" y="205" fill="#4ecdc4" opacity="0.7">HIDDEN LAYERS</text>
+              <text x="472" y="205" fill="#e8887a" opacity="0.7">OUTPUT</text>
+            </g>
+
+            <!-- Flow arrows between columns -->
+            <line x1="110" y1="115" x2="185" y2="115" stroke="#2a3558" stroke-width="1.2" marker-end="url(#arr)" opacity="0.6"/>
+            <line x1="232" y1="105" x2="317" y2="105" stroke="#2a3558" stroke-width="1.2" marker-end="url(#arr)" opacity="0.6"/>
+            <line x1="364" y1="110" x2="448" y2="110" stroke="#2a3558" stroke-width="1.2" marker-end="url(#arr)" opacity="0.6"/>
+          </svg>
+          <div class="nn-diagram-caption">Simplified neural network — data flows left to right through layers of weighted connections</div>
+        </div>
+      </div>
+
+      <!-- HOW LEARNING WORKS -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">How the Network Actually Learns</div>
+        <p>Learning in a neural network comes down to three steps repeated thousands of times:</p>
+        <div class="two-col" style="margin-top:16px;">
+          <div class="list-block">
+            <h4>Forward Pass — Make a Guess</h4>
+            <ul>
+              <li>Data enters the input layer and flows forward through every hidden layer.</li>
+              <li>Each neuron multiplies its inputs by weights, sums the results, and applies an activation function that decides how much signal passes forward.</li>
+              <li>The output layer produces a prediction — for example, "this email is spam."</li>
+            </ul>
+          </div>
+          <div class="list-block">
+            <h4>Backward Pass — Learn from Mistakes</h4>
+            <ul>
+              <li>The network compares its prediction to the correct answer and calculates the error — called the loss.</li>
+              <li>A process called backpropagation traces the error back through every layer, calculating how much each weight contributed to the mistake.</li>
+              <li>An optimiser (commonly gradient descent) nudges every weight slightly in the direction that reduces the error. This cycle repeats until accuracy is high enough.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEY CONCEPTS -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Key Concepts — Plain-Language Glossary</div>
+        <div class="concepts-grid">
+          <div class="concept-card">
+            <span class="concept-term">Weight</span>
+            <p>A number that controls how strongly one neuron influences the next. Learning means adjusting weights until predictions improve.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Activation Function</span>
+            <p>A gate that decides how much signal a neuron passes forward. Common ones (ReLU, sigmoid) introduce the non-linearity that lets networks learn complex patterns.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Loss Function</span>
+            <p>A score that measures how wrong the network's predictions are. Lower is better. Training is the process of minimising this score.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Backpropagation</span>
+            <p>The algorithm that works backwards through the network after each prediction, calculating how much each weight should change to reduce the error.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Gradient Descent</span>
+            <p>The optimisation strategy: like rolling a ball down a hill to find the lowest point, it nudges weights in the direction that reduces loss the fastest.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Epoch</span>
+            <p>One full pass through the entire training dataset. Networks typically train for many epochs before reaching acceptable accuracy.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Overfitting</span>
+            <p>When a network memorises training data instead of learning general patterns — like a student who memorises answers without understanding the subject.</p>
+          </div>
+          <div class="concept-card">
+            <span class="concept-term">Deep Learning</span>
+            <p>Neural networks with many hidden layers. "Deep" refers to the depth of the network. More layers allow the model to learn increasingly abstract representations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHERE THEY ARE USED -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Where Neural Networks Are Used Today</div>
+        <div class="use-case-grid">
+          <div class="use-case-card">
+            <div class="use-case-icon">&#128444;&#65039;</div>
+            <h5>Image Recognition</h5>
+            <p>Identifying objects in photos, reading X-rays and MRI scans, powering self-driving car vision systems.</p>
+          </div>
+          <div class="use-case-card">
+            <div class="use-case-icon">&#127908;</div>
+            <h5>Speech &amp; Voice</h5>
+            <p>Transcribing spoken words to text, powering Siri and Alexa, real-time language translation in calls.</p>
+          </div>
+          <div class="use-case-card">
+            <div class="use-case-icon">&#128172;</div>
+            <h5>Natural Language</h5>
+            <p>Chatbots, content generation, email summarisation, and sentiment analysis across millions of documents.</p>
+          </div>
+          <div class="use-case-card">
+            <div class="use-case-icon">&#128200;</div>
+            <h5>Fraud Detection</h5>
+            <p>Banks and payment processors use neural networks to flag unusual transactions in real time — directly relevant to enterprise banking systems.</p>
+          </div>
+          <div class="use-case-card">
+            <div class="use-case-icon">&#127963;&#65039;</div>
+            <h5>Recommendations</h5>
+            <p>Netflix, Spotify, and Amazon use neural networks to predict what you will enjoy next based on your history.</p>
+          </div>
+          <div class="use-case-card">
+            <div class="use-case-icon">&#128138;</div>
+            <h5>Healthcare &amp; Science</h5>
+            <p>Predicting protein structures, detecting tumours in scans, and accelerating drug discovery pipelines.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OBJECTIVE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Objective</div>
+        <p>The objective of this artifact is to make neural networks genuinely understandable
+        to anyone — technical or not — without sacrificing accuracy. The goals were to: explain
+        the architecture of a neural network using clear spatial analogies; demystify the learning
+        process (forward pass, loss, backpropagation, optimisation) in plain language; define key
+        vocabulary accessibly; and connect the concepts to real-world applications that demonstrate
+        why neural networks matter in production engineering environments including banking,
+        insurance, and enterprise software.</p>
+      </div>
+
+      <!-- VALUE PROPOSITION -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Value Proposition &amp; Unique Value</div>
+        <div class="artifact-value-grid">
+          <div class="value-card">
+            <h5>&#128161; Value Proposition</h5>
+            <p>Neural networks underpin nearly every modern AI system, yet they remain a black box
+            for most engineers. This explainer bridges that gap — giving practitioners the conceptual
+            foundation to participate meaningfully in AI-adjacent design decisions, even without
+            an ML research background.</p>
+          </div>
+          <div class="value-card">
+            <h5>&#11088; Unique Value</h5>
+            <p>Written from the perspective of an enterprise software developer, the examples and
+            analogies are grounded in production realities — fraud detection, batch processing,
+            data pipelines — rather than academic toy problems. The goal is intuition that transfers
+            to real engineering contexts, not just passing a quiz.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONCLUSION -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Conclusion</div>
+        <div class="callout-box">
+          A neural network is, at its core, a <strong>pattern-finding machine</strong>. It takes in
+          data, makes a guess, measures how wrong it was, adjusts its internal dials, and tries again —
+          millions of times — until it becomes reliably accurate. The layers give it the ability
+          to go from raw pixels or words to high-level understanding. The weights encode everything
+          the network has learned. Backpropagation is how it corrects itself. And activation
+          functions give it the flexibility to learn patterns that no simple formula could describe.
+          Understanding these fundamentals does not require a mathematics degree — it requires only
+          the right analogy, applied patiently. Once the mental model clicks, the rest of modern
+          AI becomes far less mysterious.
+        </div>
+      </div>
+
+      <!-- TOOLS & TECHNOLOGIES -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Concepts &amp; Frameworks Referenced</div>
+        <div class="artifact-tools">
+          <span class="artifact-tool">Neural Networks</span>
+          <span class="artifact-tool">Deep Learning</span>
+          <span class="artifact-tool">Backpropagation</span>
+          <span class="artifact-tool">Gradient Descent</span>
+          <span class="artifact-tool">Activation Functions (ReLU)</span>
+          <span class="artifact-tool">Loss Functions</span>
+          <span class="artifact-tool">Forward Pass</span>
+          <span class="artifact-tool">Weights &amp; Biases</span>
+          <span class="artifact-tool">Overfitting</span>
+          <span class="artifact-tool">Supervised Learning</span>
+        </div>
+      </div>
+
+      <!-- RELEVANCE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Relevance</div>
+        <p>This artifact is relevant to the AIML 500 course themes of applied AI, conceptual
+        foundations, and communication of technical ideas. Neural networks are the architecture
+        behind deep learning — the paradigm that powers translation (Artifact 2), conversational
+        chatbots (Artifact 1), and virtually every frontier AI system in production today.
+        As a Senior Software Developer working in banking and insurance, understanding how
+        neural networks function is directly applicable to evaluating fraud detection models,
+        contributing to AI-augmented claims processing, and making informed architecture decisions
+        when integrating machine learning into enterprise Java systems.</p>
+      </div>
+
       <!-- REFERENCES -->
       <div class="artifact-section">
         <div class="artifact-section-title">References</div>
         <div class="artifact-references">
           <div class="ref-item">
             <span class="ref-num">01</span>
-            <span>Google Translate — Machine translation product referenced as a real-world deep learning application:
-              <a href="https://translate.google.com" target="_blank">translate.google.com</a>
-            </span>
+            <span>Nielsen, M. (2015) — <em>Neural Networks and Deep Learning</em> — accessible foundational text on how neural networks learn: <a href="http://neuralnetworksanddeeplearning.com" target="_blank">neuralnetworksanddeeplearning.com</a></span>
           </div>
           <div class="ref-item">
             <span class="ref-num">02</span>
-            <span>Vaswani et al. (2017) — "Attention Is All You Need" — foundational Transformer architecture paper underpinning BERT and GPT models.</span>
+            <span>LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015) — "Deep Learning" — Nature, Vol. 521. Landmark paper establishing deep learning as a field.</span>
           </div>
           <div class="ref-item">
             <span class="ref-num">03</span>
-            <span>Scikit-learn Documentation — Reference for Naive Bayes and Random Forest algorithms:
-              <a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn.org</a>
-            </span>
+            <span>TensorFlow Documentation — Practical reference for neural network implementation concepts: <a href="https://www.tensorflow.org/guide/keras" target="_blank">tensorflow.org/guide/keras</a></span>
           </div>
           <div class="ref-item">
             <span class="ref-num">04</span>
-            <span>Google AI Blog — Overview of ML approaches used in Gmail spam filtering and NLP research:
-              <a href="https://ai.googleblog.com" target="_blank">ai.googleblog.com</a>
-            </span>
+            <span>3Blue1Brown — "Neural Networks" video series — outstanding visual explanation of backpropagation and gradient descent: <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank">youtube.com — 3Blue1Brown Neural Networks playlist</a></span>
           </div>
         </div>
       </div>
@@ -1381,7 +1901,7 @@
         <h3>Senior Software Developer</h3>
         <div class="job-date">Jul 2024 – Dec 2025</div>
       </div>
-      <div class="job-company">Bank of America (Infosys Ltd) · Seattle</div>
+      <div class="job-company">Bank of America (Infosys Ltd) &middot; Seattle</div>
       <ul>
         <li>Developed secure REST APIs for customer contact validation and system integrations.</li>
         <li>Implemented error handling, security best practices, and optimized verification workflows.</li>
@@ -1393,7 +1913,7 @@
         <h3>Senior Software Developer</h3>
         <div class="job-date">May 2023 – Mar 2024</div>
       </div>
-      <div class="job-company">Sapiens Technologies India Pvt. Ltd. · Bangalore</div>
+      <div class="job-company">Sapiens Technologies India Pvt. Ltd. &middot; Bangalore</div>
       <ul>
         <li>Designed scalable architecture using Java, Spring Boot, and REST APIs for insurance products.</li>
         <li>Built wage calculation modules and batch processes using Spring Batch.</li>
@@ -1407,7 +1927,7 @@
         <h3>Software Developer</h3>
         <div class="job-date">Dec 2021 – Apr 2023</div>
       </div>
-      <div class="job-company">FIS Global · Bangalore</div>
+      <div class="job-company">FIS Global &middot; Bangalore</div>
       <ul>
         <li>Developed account opening application and REST APIs using Spring framework.</li>
         <li>Deployed microservices on OpenShift with CI/CD pipelines.</li>
@@ -1420,8 +1940,8 @@
         <h3>Software Developer</h3>
         <div class="job-date">Sep 2015 – Dec 2021</div>
       </div>
-      <div class="job-company">TCS Bancs · Bangalore</div>
-      <div class="job-client">Client: PostFinance, Switzerland &nbsp;·&nbsp; Nov 2018 – Oct 2020</div>
+      <div class="job-company">TCS Bancs &middot; Bangalore</div>
+      <div class="job-client">Client: PostFinance, Switzerland &nbsp;&middot;&nbsp; Nov 2018 – Oct 2020</div>
       <ul>
         <li>Enhanced reporting solutions using Java 8 and Spring Batch.</li>
         <li>Developed bulk data processing jobs and retry mechanisms.</li>
@@ -1434,7 +1954,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <strong>Manisa Ojha</strong> &nbsp;·&nbsp; Software Engineering Portfolio</p>
+  <p>&copy; 2026 <strong>Manisa Ojha</strong> &nbsp;&middot;&nbsp; Software Engineering Portfolio</p>
 </footer>
 
 <script>
@@ -1453,7 +1973,6 @@
   const skillsSection = document.getElementById('skills');
   const skillsGrid = skillsSection.querySelector('.skills-grid');
   const skillTags = skillsGrid.querySelectorAll('.skill-tag');
-
   const skillObs = new IntersectionObserver(entries => {
     if (!entries[0].isIntersecting) return;
     skillsGrid.classList.add('animated');
@@ -1511,7 +2030,8 @@
     navLinks.forEach(a => {
       const href = a.getAttribute('href').replace('#', '');
       a.classList.toggle('active',
-        href === cur || (href === 'artifact' && (cur === 'artifact' || cur === 'artifact2'))
+        href === cur ||
+        (href === 'artifact' && (cur === 'artifact' || cur === 'artifact2' || cur === 'artifact3'))
       );
     });
   };
