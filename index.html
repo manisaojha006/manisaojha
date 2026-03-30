@@ -714,7 +714,7 @@
   .callout-box:hover { border-left-color: var(--teal); }
   .callout-box strong { color: var(--gold); }
 
-  /* ── NEURAL NETWORK DIAGRAM (Artifact 3) ── */
+  /* ── NEURAL NETWORK DIAGRAM ── */
   .nn-diagram-wrap {
     background: var(--surface);
     border: 1px solid var(--border2);
@@ -983,6 +983,155 @@
     color: var(--gold); font-size: 9px; opacity: 0.7;
   }
 
+  /* ── DATA CHALLENGES — ARTIFACT 4 SPECIFIC STYLES ── */
+
+  /* Challenge grid — 2x2 or 3-col */
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .challenge-card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 24px 22px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.28s, transform 0.28s, box-shadow 0.28s;
+  }
+
+  .challenge-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.28s;
+  }
+
+  .challenge-card:hover {
+    border-color: rgba(212,168,83,0.32);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.3);
+  }
+
+  .challenge-card:hover::before { opacity: 1; }
+
+  .challenge-icon {
+    font-size: 28px; margin-bottom: 12px; display: block;
+  }
+
+  .challenge-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--text-hi); margin-bottom: 8px;
+  }
+
+  .challenge-card p {
+    font-size: 13px; color: var(--text-lo);
+    line-height: 1.7; margin-bottom: 0;
+  }
+
+  .challenge-impact {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+  }
+
+  .impact-high   { background: rgba(232,136,122,0.12); border: 1px solid rgba(232,136,122,0.3); color: var(--rose); }
+  .impact-medium { background: var(--gold-dim);        border: 1px solid rgba(212,168,83,0.3);  color: var(--gold); }
+  .impact-low    { background: var(--teal-dim);        border: 1px solid rgba(78,205,196,0.3);  color: var(--teal); }
+
+  /* Data imperfection bubble list */
+  .imperfection-list {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px;
+  }
+
+  .imperfection-bubble {
+    font-size: 12px; font-weight: 500;
+    padding: 7px 16px; border-radius: 50px;
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    color: var(--text-lo);
+    transition: all 0.22s;
+    cursor: default;
+  }
+
+  .imperfection-bubble:hover {
+    background: var(--gold-dim);
+    border-color: rgba(212,168,83,0.4);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* Impact severity scale */
+  .severity-scale {
+    display: flex; align-items: stretch; gap: 0;
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border2);
+    margin-top: 4px;
+  }
+
+  .severity-band {
+    flex: 1; padding: 20px 16px; text-align: center;
+    transition: filter 0.2s;
+  }
+
+  .severity-band:hover { filter: brightness(1.15); }
+
+  .severity-band .sev-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; display: block; margin-bottom: 6px;
+  }
+
+  .severity-band .sev-title {
+    font-size: 13px; font-weight: 600; color: var(--text-hi);
+    display: block; margin-bottom: 4px;
+  }
+
+  .severity-band .sev-desc {
+    font-size: 11.5px; color: var(--text-lo); line-height: 1.55;
+  }
+
+  .sev-a { background: rgba(232,136,122,0.08); border-right: 1px solid var(--border); }
+  .sev-a .sev-label { color: var(--rose); }
+
+  .sev-b { background: rgba(212,168,83,0.07); border-right: 1px solid var(--border); }
+  .sev-b .sev-label { color: var(--gold); }
+
+  .sev-c { background: rgba(78,205,196,0.07); }
+  .sev-c .sev-label { color: var(--teal); }
+
+  /* Paradigm shift callout */
+  .paradigm-shift {
+    display: flex; gap: 22px; align-items: flex-start;
+    background: linear-gradient(135deg, rgba(212,168,83,0.07), rgba(78,205,196,0.04));
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--teal);
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin-top: 4px;
+    transition: border-left-color 0.3s;
+  }
+
+  .paradigm-shift:hover { border-left-color: var(--gold); }
+
+  .paradigm-shift-icon { font-size: 36px; flex-shrink: 0; margin-top: 2px; }
+
+  .paradigm-shift h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--text-hi); margin-bottom: 8px;
+  }
+
+  .paradigm-shift p {
+    font-size: 14px; color: var(--text-lo); line-height: 1.8; margin-bottom: 0;
+  }
+
   /* ── FOOTER ── */
   footer {
     background: var(--surface);
@@ -1003,13 +1152,18 @@
   }
 
   .reveal {
-    opacity: 0;
-    transform: translateY(32px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.75s cubic-bezier(.22,1,.36,1),
                 transform 0.75s cubic-bezier(.22,1,.36,1);
   }
 
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  .reveal.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
 
   .skills-grid .skill-tag { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.25s, color 0.25s, box-shadow 0.25s; }
   .skills-grid.animated .skill-tag { opacity: 1; transform: translateY(0); }
@@ -1028,8 +1182,10 @@
 
   @media (max-width: 640px) {
     .two-col, .audience-grid, .example-blocks, .artifact-value-grid,
-    .nn-layers, .use-case-grid { grid-template-columns: 1fr; }
+    .nn-layers, .use-case-grid, .challenge-grid { grid-template-columns: 1fr; }
     .concepts-grid { grid-template-columns: 1fr 1fr; }
+    .severity-scale { flex-direction: column; }
+    .sev-a, .sev-b { border-right: none; border-bottom: 1px solid var(--border); }
     nav { padding: 0 12px; overflow-x: auto; }
     nav a { padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; }
     .section-wrap { padding: 72px 22px; }
@@ -1038,7 +1194,7 @@
     .summary-card { padding: 28px; }
     .compare-table { font-size: 12px; }
     .compare-table th, .compare-table td { padding: 10px 12px; }
-    .analogy-block { flex-direction: column; }
+    .analogy-block, .paradigm-shift { flex-direction: column; }
   }
 </style>
 </head>
@@ -1512,7 +1668,6 @@
     </div>
     <div class="artifact-body">
 
-      <!-- INTRODUCTION -->
       <div class="artifact-section-title">Introduction</div>
       <p style="font-size:15px; color:var(--text-md); line-height:1.9; margin-bottom:18px;">
         Neural networks are the engine behind some of the most powerful AI systems in use today —
@@ -1523,7 +1678,6 @@
         grounded in everyday analogies that make the ideas stick.
       </p>
 
-      <!-- THE CORE IDEA -->
       <div class="artifact-section">
         <div class="artifact-section-title">The Core Idea — What Is a Neural Network?</div>
         <p>A neural network is a system that learns from examples. You show it thousands of labelled
@@ -1538,7 +1692,6 @@
         based on how well it is doing.</p>
       </div>
 
-      <!-- ANALOGY -->
       <div class="artifact-section">
         <div class="artifact-section-title">The Best Analogy — Learning to Recognise Handwriting</div>
         <div class="analogy-block">
@@ -1557,7 +1710,6 @@
         </div>
       </div>
 
-      <!-- LAYERS BREAKDOWN -->
       <div class="artifact-section">
         <div class="artifact-section-title">The Three Layers — Input, Hidden, Output</div>
         <p style="margin-bottom:16px;">Every neural network is organised into layers. Data enters at the left, passes through
@@ -1587,7 +1739,6 @@
           </div>
         </div>
 
-        <!-- SVG DIAGRAM -->
         <div class="nn-diagram-wrap" style="margin-top:20px;">
           <svg viewBox="0 0 560 220" width="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;">
             <defs>
@@ -1595,85 +1746,53 @@
                 <path d="M1 1L7 4L1 7" fill="none" stroke="#2a3558" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               </marker>
             </defs>
-
-            <!-- Connection lines INPUT -> HIDDEN -->
             <g opacity="0.22" stroke="#d4a853" stroke-width="0.9" fill="none">
-              <!-- from input nodes (y: 55,95,135,175) to hidden1 nodes (y: 65,105,145) -->
               <line x1="88" y1="55"  x2="200" y2="65"/>  <line x1="88" y1="55"  x2="200" y2="105"/> <line x1="88" y1="55"  x2="200" y2="145"/>
               <line x1="88" y1="95"  x2="200" y2="65"/>  <line x1="88" y1="95"  x2="200" y2="105"/> <line x1="88" y1="95"  x2="200" y2="145"/>
               <line x1="88" y1="135" x2="200" y2="65"/>  <line x1="88" y1="135" x2="200" y2="105"/> <line x1="88" y1="135" x2="200" y2="145"/>
               <line x1="88" y1="175" x2="200" y2="65"/>  <line x1="88" y1="175" x2="200" y2="105"/> <line x1="88" y1="175" x2="200" y2="145"/>
             </g>
-            <!-- Connection lines HIDDEN1 -> HIDDEN2 -->
             <g opacity="0.22" stroke="#4ecdc4" stroke-width="0.9" fill="none">
               <line x1="220" y1="65"  x2="332" y2="65"/>  <line x1="220" y1="65"  x2="332" y2="105"/> <line x1="220" y1="65"  x2="332" y2="145"/>
               <line x1="220" y1="105" x2="332" y2="65"/>  <line x1="220" y1="105" x2="332" y2="105"/> <line x1="220" y1="105" x2="332" y2="145"/>
               <line x1="220" y1="145" x2="332" y2="65"/>  <line x1="220" y1="145" x2="332" y2="105"/> <line x1="220" y1="145" x2="332" y2="145"/>
             </g>
-            <!-- Connection lines HIDDEN2 -> OUTPUT -->
             <g opacity="0.22" stroke="#e8887a" stroke-width="0.9" fill="none">
               <line x1="352" y1="65"  x2="462" y2="90"/>  <line x1="352" y1="65"  x2="462" y2="130"/>
               <line x1="352" y1="105" x2="462" y2="90"/>  <line x1="352" y1="105" x2="462" y2="130"/>
               <line x1="352" y1="145" x2="462" y2="90"/>  <line x1="352" y1="145" x2="462" y2="130"/>
             </g>
-
-            <!-- INPUT NODES -->
             <g fill="#111829" stroke="#d4a853" stroke-width="1.5">
-              <circle cx="88" cy="55"  r="16"/>
-              <circle cx="88" cy="95"  r="16"/>
-              <circle cx="88" cy="135" r="16"/>
-              <circle cx="88" cy="175" r="16"/>
+              <circle cx="88" cy="55"  r="16"/> <circle cx="88" cy="95"  r="16"/>
+              <circle cx="88" cy="135" r="16"/> <circle cx="88" cy="175" r="16"/>
             </g>
-            <!-- INPUT labels -->
             <g fill="#d4a853" font-family="DM Sans,sans-serif" font-size="8.5" text-anchor="middle" font-weight="600">
-              <text x="88" y="58">x1</text>
-              <text x="88" y="98">x2</text>
-              <text x="88" y="138">x3</text>
-              <text x="88" y="178">x4</text>
+              <text x="88" y="58">x1</text> <text x="88" y="98">x2</text>
+              <text x="88" y="138">x3</text> <text x="88" y="178">x4</text>
             </g>
-
-            <!-- HIDDEN 1 NODES -->
             <g fill="#111829" stroke="#4ecdc4" stroke-width="1.5">
-              <circle cx="210" cy="65"  r="16"/>
-              <circle cx="210" cy="105" r="16"/>
-              <circle cx="210" cy="145" r="16"/>
+              <circle cx="210" cy="65"  r="16"/> <circle cx="210" cy="105" r="16"/> <circle cx="210" cy="145" r="16"/>
             </g>
             <g fill="#4ecdc4" font-family="DM Sans,sans-serif" font-size="8.5" text-anchor="middle" font-weight="600">
-              <text x="210" y="68">h1</text>
-              <text x="210" y="108">h2</text>
-              <text x="210" y="148">h3</text>
+              <text x="210" y="68">h1</text> <text x="210" y="108">h2</text> <text x="210" y="148">h3</text>
             </g>
-
-            <!-- HIDDEN 2 NODES -->
             <g fill="#111829" stroke="#4ecdc4" stroke-width="1.5">
-              <circle cx="342" cy="65"  r="16"/>
-              <circle cx="342" cy="105" r="16"/>
-              <circle cx="342" cy="145" r="16"/>
+              <circle cx="342" cy="65"  r="16"/> <circle cx="342" cy="105" r="16"/> <circle cx="342" cy="145" r="16"/>
             </g>
             <g fill="#4ecdc4" font-family="DM Sans,sans-serif" font-size="8.5" text-anchor="middle" font-weight="600">
-              <text x="342" y="68">h4</text>
-              <text x="342" y="108">h5</text>
-              <text x="342" y="148">h6</text>
+              <text x="342" y="68">h4</text> <text x="342" y="108">h5</text> <text x="342" y="148">h6</text>
             </g>
-
-            <!-- OUTPUT NODES -->
             <g fill="#111829" stroke="#e8887a" stroke-width="1.5">
-              <circle cx="472" cy="90"  r="16"/>
-              <circle cx="472" cy="130" r="16"/>
+              <circle cx="472" cy="90"  r="16"/> <circle cx="472" cy="130" r="16"/>
             </g>
             <g fill="#e8887a" font-family="DM Sans,sans-serif" font-size="8" text-anchor="middle" font-weight="600">
-              <text x="472" y="93">y1</text>
-              <text x="472" y="133">y2</text>
+              <text x="472" y="93">y1</text> <text x="472" y="133">y2</text>
             </g>
-
-            <!-- Column Labels -->
             <g font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.5" text-anchor="middle">
               <text x="88"  y="205" fill="#d4a853" opacity="0.7">INPUT</text>
               <text x="275" y="205" fill="#4ecdc4" opacity="0.7">HIDDEN LAYERS</text>
               <text x="472" y="205" fill="#e8887a" opacity="0.7">OUTPUT</text>
             </g>
-
-            <!-- Flow arrows between columns -->
             <line x1="110" y1="115" x2="185" y2="115" stroke="#2a3558" stroke-width="1.2" marker-end="url(#arr)" opacity="0.6"/>
             <line x1="232" y1="105" x2="317" y2="105" stroke="#2a3558" stroke-width="1.2" marker-end="url(#arr)" opacity="0.6"/>
             <line x1="364" y1="110" x2="448" y2="110" stroke="#2a3558" stroke-width="1.2" marker-end="url(#arr)" opacity="0.6"/>
@@ -1682,7 +1801,6 @@
         </div>
       </div>
 
-      <!-- HOW LEARNING WORKS -->
       <div class="artifact-section">
         <div class="artifact-section-title">How the Network Actually Learns</div>
         <p>Learning in a neural network comes down to three steps repeated thousands of times:</p>
@@ -1706,116 +1824,32 @@
         </div>
       </div>
 
-      <!-- KEY CONCEPTS -->
       <div class="artifact-section">
         <div class="artifact-section-title">Key Concepts — Plain-Language Glossary</div>
         <div class="concepts-grid">
-          <div class="concept-card">
-            <span class="concept-term">Weight</span>
-            <p>A number that controls how strongly one neuron influences the next. Learning means adjusting weights until predictions improve.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Activation Function</span>
-            <p>A gate that decides how much signal a neuron passes forward. Common ones (ReLU, sigmoid) introduce the non-linearity that lets networks learn complex patterns.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Loss Function</span>
-            <p>A score that measures how wrong the network's predictions are. Lower is better. Training is the process of minimising this score.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Backpropagation</span>
-            <p>The algorithm that works backwards through the network after each prediction, calculating how much each weight should change to reduce the error.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Gradient Descent</span>
-            <p>The optimisation strategy: like rolling a ball down a hill to find the lowest point, it nudges weights in the direction that reduces loss the fastest.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Epoch</span>
-            <p>One full pass through the entire training dataset. Networks typically train for many epochs before reaching acceptable accuracy.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Overfitting</span>
-            <p>When a network memorises training data instead of learning general patterns — like a student who memorises answers without understanding the subject.</p>
-          </div>
-          <div class="concept-card">
-            <span class="concept-term">Deep Learning</span>
-            <p>Neural networks with many hidden layers. "Deep" refers to the depth of the network. More layers allow the model to learn increasingly abstract representations.</p>
-          </div>
+          <div class="concept-card"><span class="concept-term">Weight</span><p>A number that controls how strongly one neuron influences the next. Learning means adjusting weights until predictions improve.</p></div>
+          <div class="concept-card"><span class="concept-term">Activation Function</span><p>A gate that decides how much signal a neuron passes forward. Common ones (ReLU, sigmoid) introduce the non-linearity that lets networks learn complex patterns.</p></div>
+          <div class="concept-card"><span class="concept-term">Loss Function</span><p>A score that measures how wrong the network's predictions are. Lower is better. Training is the process of minimising this score.</p></div>
+          <div class="concept-card"><span class="concept-term">Backpropagation</span><p>The algorithm that works backwards through the network after each prediction, calculating how much each weight should change to reduce the error.</p></div>
+          <div class="concept-card"><span class="concept-term">Gradient Descent</span><p>The optimisation strategy: like rolling a ball down a hill to find the lowest point, it nudges weights in the direction that reduces loss the fastest.</p></div>
+          <div class="concept-card"><span class="concept-term">Epoch</span><p>One full pass through the entire training dataset. Networks typically train for many epochs before reaching acceptable accuracy.</p></div>
+          <div class="concept-card"><span class="concept-term">Overfitting</span><p>When a network memorises training data instead of learning general patterns — like a student who memorises answers without understanding the subject.</p></div>
+          <div class="concept-card"><span class="concept-term">Deep Learning</span><p>Neural networks with many hidden layers. "Deep" refers to the depth of the network. More layers allow the model to learn increasingly abstract representations.</p></div>
         </div>
       </div>
 
-      <!-- WHERE THEY ARE USED -->
       <div class="artifact-section">
         <div class="artifact-section-title">Where Neural Networks Are Used Today</div>
         <div class="use-case-grid">
-          <div class="use-case-card">
-            <div class="use-case-icon">&#128444;&#65039;</div>
-            <h5>Image Recognition</h5>
-            <p>Identifying objects in photos, reading X-rays and MRI scans, powering self-driving car vision systems.</p>
-          </div>
-          <div class="use-case-card">
-            <div class="use-case-icon">&#127908;</div>
-            <h5>Speech &amp; Voice</h5>
-            <p>Transcribing spoken words to text, powering Siri and Alexa, real-time language translation in calls.</p>
-          </div>
-          <div class="use-case-card">
-            <div class="use-case-icon">&#128172;</div>
-            <h5>Natural Language</h5>
-            <p>Chatbots, content generation, email summarisation, and sentiment analysis across millions of documents.</p>
-          </div>
-          <div class="use-case-card">
-            <div class="use-case-icon">&#128200;</div>
-            <h5>Fraud Detection</h5>
-            <p>Banks and payment processors use neural networks to flag unusual transactions in real time — directly relevant to enterprise banking systems.</p>
-          </div>
-          <div class="use-case-card">
-            <div class="use-case-icon">&#127963;&#65039;</div>
-            <h5>Recommendations</h5>
-            <p>Netflix, Spotify, and Amazon use neural networks to predict what you will enjoy next based on your history.</p>
-          </div>
-          <div class="use-case-card">
-            <div class="use-case-icon">&#128138;</div>
-            <h5>Healthcare &amp; Science</h5>
-            <p>Predicting protein structures, detecting tumours in scans, and accelerating drug discovery pipelines.</p>
-          </div>
+          <div class="use-case-card"><div class="use-case-icon">&#128444;&#65039;</div><h5>Image Recognition</h5><p>Identifying objects in photos, reading X-rays and MRI scans, powering self-driving car vision systems.</p></div>
+          <div class="use-case-card"><div class="use-case-icon">&#127908;</div><h5>Speech &amp; Voice</h5><p>Transcribing spoken words to text, powering Siri and Alexa, real-time language translation in calls.</p></div>
+          <div class="use-case-card"><div class="use-case-icon">&#128172;</div><h5>Natural Language</h5><p>Chatbots, content generation, email summarisation, and sentiment analysis across millions of documents.</p></div>
+          <div class="use-case-card"><div class="use-case-icon">&#128200;</div><h5>Fraud Detection</h5><p>Banks and payment processors use neural networks to flag unusual transactions in real time — directly relevant to enterprise banking systems.</p></div>
+          <div class="use-case-card"><div class="use-case-icon">&#127963;&#65039;</div><h5>Recommendations</h5><p>Netflix, Spotify, and Amazon use neural networks to predict what you will enjoy next based on your history.</p></div>
+          <div class="use-case-card"><div class="use-case-icon">&#128138;</div><h5>Healthcare &amp; Science</h5><p>Predicting protein structures, detecting tumours in scans, and accelerating drug discovery pipelines.</p></div>
         </div>
       </div>
 
-      <!-- OBJECTIVE -->
-      <div class="artifact-section">
-        <div class="artifact-section-title">Objective</div>
-        <p>The objective of this artifact is to make neural networks genuinely understandable
-        to anyone — technical or not — without sacrificing accuracy. The goals were to: explain
-        the architecture of a neural network using clear spatial analogies; demystify the learning
-        process (forward pass, loss, backpropagation, optimisation) in plain language; define key
-        vocabulary accessibly; and connect the concepts to real-world applications that demonstrate
-        why neural networks matter in production engineering environments including banking,
-        insurance, and enterprise software.</p>
-      </div>
-
-      <!-- VALUE PROPOSITION -->
-      <div class="artifact-section">
-        <div class="artifact-section-title">Value Proposition &amp; Unique Value</div>
-        <div class="artifact-value-grid">
-          <div class="value-card">
-            <h5>&#128161; Value Proposition</h5>
-            <p>Neural networks underpin nearly every modern AI system, yet they remain a black box
-            for most engineers. This explainer bridges that gap — giving practitioners the conceptual
-            foundation to participate meaningfully in AI-adjacent design decisions, even without
-            an ML research background.</p>
-          </div>
-          <div class="value-card">
-            <h5>&#11088; Unique Value</h5>
-            <p>Written from the perspective of an enterprise software developer, the examples and
-            analogies are grounded in production realities — fraud detection, batch processing,
-            data pipelines — rather than academic toy problems. The goal is intuition that transfers
-            to real engineering contexts, not just passing a quiz.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONCLUSION -->
       <div class="artifact-section">
         <div class="artifact-section-title">Conclusion</div>
         <div class="callout-box">
@@ -1831,7 +1865,6 @@
         </div>
       </div>
 
-      <!-- TOOLS & TECHNOLOGIES -->
       <div class="artifact-section">
         <div class="artifact-section-title">Concepts &amp; Frameworks Referenced</div>
         <div class="artifact-tools">
@@ -1848,7 +1881,6 @@
         </div>
       </div>
 
-      <!-- RELEVANCE -->
       <div class="artifact-section">
         <div class="artifact-section-title">Relevance</div>
         <p>This artifact is relevant to the AIML 500 course themes of applied AI, conceptual
@@ -1861,25 +1893,437 @@
         when integrating machine learning into enterprise Java systems.</p>
       </div>
 
+      <div class="artifact-section">
+        <div class="artifact-section-title">References</div>
+        <div class="artifact-references">
+          <div class="ref-item"><span class="ref-num">01</span><span>Nielsen, M. (2015) — <em>Neural Networks and Deep Learning</em>: <a href="http://neuralnetworksanddeeplearning.com" target="_blank">neuralnetworksanddeeplearning.com</a></span></div>
+          <div class="ref-item"><span class="ref-num">02</span><span>LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015) — "Deep Learning" — Nature, Vol. 521.</span></div>
+          <div class="ref-item"><span class="ref-num">03</span><span>TensorFlow Documentation: <a href="https://www.tensorflow.org/guide/keras" target="_blank">tensorflow.org/guide/keras</a></span></div>
+          <div class="ref-item"><span class="ref-num">04</span><span>3Blue1Brown — Neural Networks video series: <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank">youtube.com — 3Blue1Brown Neural Networks playlist</a></span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ARTIFACT 4 — DATA CHALLENGES IN MACHINE LEARNING
+═══════════════════════════════════════════════════════════════ -->
+<div id="artifact4" class="section-wrap">
+  <div class="section-label">Critical Analysis</div>
+  <h2 class="section-title">Artifact 4</h2>
+  <div class="artifact-card">
+    <div class="artifact-header">
+      <div class="artifact-num">04</div>
+      <div>
+        <h3>Data Challenges in Machine Learning</h3>
+        <p>Training, Deployment, and the Hidden Complexity of Real-World Data — AIML 500 Coursework</p>
+      </div>
+    </div>
+    <div class="artifact-body">
+
+      <!-- INTRODUCTION -->
+      <div class="artifact-section-title">Introduction</div>
+      <p style="font-size:15px; color:var(--text-md); line-height:1.9; margin-bottom:18px;">
+        Building a machine learning model is often described as a technical triumph — choosing the right
+        algorithm, tuning hyperparameters, achieving high accuracy on a benchmark. But in production
+        environments, the largest and most consequential obstacles rarely live in the model itself.
+        They live in the <strong style="color:var(--gold)">data</strong>. This artifact examines the
+        landscape of data challenges encountered when training and deploying ML applications — from
+        structural imperfections like imbalance and overlap, to operational concerns like privacy,
+        drift, and scalability — and draws connections to the real systems a practising enterprise
+        developer encounters every day.
+      </p>
+
+      <!-- DESCRIPTION -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Description</div>
+        <p>This artifact provides a structured analysis of the key data challenges that affect machine
+        learning across its full lifecycle — from initial data acquisition through model training to
+        live deployment. It categorises these challenges by their nature (structural, operational,
+        ethical, and temporal), examines their real-world impact, and explores mitigation strategies
+        employed in modern ML engineering. The analysis draws on published research in data-centric AI,
+        industry best practices, and direct parallels to enterprise banking and insurance systems.</p>
+      </div>
+
+      <!-- OBJECTIVE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Objective</div>
+        <p>The objective of this artifact is to develop a critical, practitioner-level understanding of
+        why data — not models — is most often the limiting factor in deployed ML systems. Specifically,
+        the goals were to: catalogue and explain the full spectrum of data challenges with concrete
+        examples; demonstrate how each challenge impacts model accuracy, fairness, and reliability;
+        connect data quality concepts to real production scenarios in regulated industries such as banking
+        and insurance; and articulate how the emerging paradigm of Data-Centric AI addresses these
+        challenges differently from traditional model-centric approaches.</p>
+      </div>
+
+      <!-- THE CORE PRINCIPLE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">The Foundational Principle</div>
+        <div class="analogy-block">
+          <div class="analogy-icon">&#128465;&#65039;</div>
+          <div>
+            <h5>"Garbage in, garbage out" — the curse of learning from data</h5>
+            <p>Machine learning algorithms are designed to learn from training data and expect that data
+            to be well-behaved across several properties: equally represented classes, consistent feature
+            values, correctly labelled instances, and stable distributions over time. In practice, these
+            assumptions are broken far more often than they are met. The gap between <em>data</em> and
+            <em>quality data</em> is where most ML projects quietly fail — not in the architecture of
+            the model, but in the imperfections of the data it was fed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATA IMPERFECTIONS TAXONOMY -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Taxonomy of Data Imperfections</div>
+        <p style="font-size:14px; color:var(--text-lo); line-height:1.85; margin-bottom:16px;">
+          Research in data-centric AI identifies a consistent set of data imperfections that arise
+          across real-world domains — not always due to errors in collection, but often as a natural
+          product of the domain itself. When left unaddressed, each one biases or degrades model behaviour.
+        </p>
+        <div class="imperfection-list">
+          <span class="imperfection-bubble">Imbalanced Data</span>
+          <span class="imperfection-bubble">Underrepresented Sub-Concepts</span>
+          <span class="imperfection-bubble">Class Overlap</span>
+          <span class="imperfection-bubble">Small or Sparse Data</span>
+          <span class="imperfection-bubble">Inconsistent Data</span>
+          <span class="imperfection-bubble">Irrelevant Features</span>
+          <span class="imperfection-bubble">Redundant Data</span>
+          <span class="imperfection-bubble">Noisy Data</span>
+          <span class="imperfection-bubble">Dataset Shift / Drift</span>
+          <span class="imperfection-bubble">Missing Data</span>
+        </div>
+      </div>
+
+      <!-- CORE CHALLENGE CARDS -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Core Data Challenges — Training Phase</div>
+        <div class="challenge-grid">
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#9878;&#65039;</span>
+            <h5>Data Availability</h5>
+            <p>Sufficient, relevant data can be difficult to obtain — especially in niche domains, regulated industries, or novel applications. Models trained on insufficient data fail to generalise and overfit to the patterns they have seen.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128269;</span>
+            <h5>Data Quality</h5>
+            <p>Incomplete records, inaccurate values, inconsistent formatting, and noise in raw data corrupt training signals. A model trained on dirty data learns patterns that do not exist in the real world — or misses ones that do.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#9878;&#65039;</span>
+            <h5>Imbalanced Classes</h5>
+            <p>When one class vastly outnumbers another — fraud transactions versus legitimate ones, rare disease versus healthy — models default to predicting the majority class. The minority class, often the one that matters most, gets systematically ignored.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128203;</span>
+            <h5>Data Labelling</h5>
+            <p>Supervised learning requires labelled data, but labelling at scale is expensive, slow, and prone to human error. Crowd-sourced annotations introduce inconsistency; domain expert labelling is costly. Label quality directly caps model accuracy.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128202;</span>
+            <h5>Underrepresented Sub-Concepts</h5>
+            <p>Within a class, small clusters of rare but valid examples — called small disjuncts — are frequently missed or overfit. In healthcare, rare disease subtypes or atypical presentations fall into this category, leading to dangerous misclassifications.</p>
+            <span class="challenge-impact impact-medium">Medium Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#127919;</span>
+            <h5>Class Overlap</h5>
+            <p>When instances of different classes occupy the same region of the feature space, models struggle to draw clean decision boundaries. Overlap is particularly common in fraud detection, where normal and fraudulent transactions share many surface features.</p>
+            <span class="challenge-impact impact-medium">Medium Impact</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- OPERATIONAL CHALLENGES -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Operational Data Challenges — Deployment Phase</div>
+        <div class="challenge-grid">
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128274;</span>
+            <h5>Data Privacy &amp; Security</h5>
+            <p>Personal and sensitive data used in ML — transaction histories, medical records, insurance claims — must comply with regulations such as GDPR and HIPAA. Privacy constraints limit data access, complicate storage, and restrict the ability to share datasets across teams or organisations.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#9878;</span>
+            <h5>Data Bias</h5>
+            <p>Historical inequalities embedded in training data propagate into model predictions. A loan approval model trained on decades of biased lending decisions will encode and perpetuate those patterns. In regulated banking and insurance, biased models carry legal, regulatory, and reputational risk.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128260;</span>
+            <h5>Data Drift</h5>
+            <p>The real world changes. Consumer behaviour shifts, fraud techniques evolve, economic conditions change — and the distribution of incoming data gradually diverges from the training data. Without monitoring and retraining, models silently degrade as the world moves on without them.</p>
+            <span class="challenge-impact impact-high">High Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128190;</span>
+            <h5>Data Scalability</h5>
+            <p>Processing and storing massive datasets for training requires significant infrastructure — distributed systems, cloud storage, GPU clusters. Scaling data pipelines introduces complexity, cost, and new failure modes that must be engineered and monitored.</p>
+            <span class="challenge-impact impact-medium">Medium Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#9201;&#65039;</span>
+            <h5>Real-Time Data Processing</h5>
+            <p>Applications like payment fraud detection, algorithmic trading, and autonomous systems require inference on live streaming data — not static batches. Models trained on historical snapshots must adapt to real-time inputs without the latency of traditional batch processing pipelines.</p>
+            <span class="challenge-impact impact-medium">Medium Impact</span>
+          </div>
+
+          <div class="challenge-card">
+            <span class="challenge-icon">&#128279;</span>
+            <h5>Data Integration</h5>
+            <p>Enterprise ML models commonly draw from multiple heterogeneous sources — structured databases, unstructured documents, real-time event streams, third-party APIs. Reconciling these formats, schemas, and update frequencies requires robust data engineering before any model training can begin.</p>
+            <span class="challenge-impact impact-medium">Medium Impact</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SEVERITY SCALE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Impact Severity Framework</div>
+        <p style="font-size:14px; color:var(--text-lo); line-height:1.85; margin-bottom:16px;">
+          Not all data challenges carry equal weight. The consequences range from degraded accuracy
+          to catastrophic ethical failures. This framework categorises challenges by their
+          potential impact on model reliability and downstream outcomes.
+        </p>
+        <div class="severity-scale">
+          <div class="severity-band sev-a">
+            <span class="sev-label">Critical</span>
+            <span class="sev-title">Model Failure</span>
+            <span class="sev-desc">Bias, severe imbalance, data drift — model behaves incorrectly or unethically in production</span>
+          </div>
+          <div class="severity-band sev-b">
+            <span class="sev-label">Significant</span>
+            <span class="sev-title">Degraded Accuracy</span>
+            <span class="sev-desc">Class overlap, label noise, missing data — model performs below acceptable thresholds</span>
+          </div>
+          <div class="severity-band sev-c">
+            <span class="sev-label">Operational</span>
+            <span class="sev-title">Engineering Cost</span>
+            <span class="sev-desc">Scalability, versioning, integration — model development slows or becomes more expensive</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANKING & INSURANCE RELEVANCE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Relevance to Banking &amp; Insurance Systems</div>
+        <div class="two-col">
+          <div class="list-block">
+            <h4>Banking Applications</h4>
+            <ul>
+              <li>Fraud detection models face extreme class imbalance — fraudulent transactions may be fewer than 0.1% of all activity, yet must be caught accurately.</li>
+              <li>Customer data used for credit scoring is governed by strict regulatory frameworks, limiting what features can be used and requiring model explainability.</li>
+              <li>Payment behaviour shifts over time with economic cycles, requiring continuous monitoring for data drift and model retraining cadences.</li>
+              <li>Multi-source integration — core banking, card systems, external credit bureaus — creates persistent data consistency and interoperability challenges.</li>
+            </ul>
+          </div>
+          <div class="list-block">
+            <h4>Insurance Applications</h4>
+            <ul>
+              <li>Claims processing models trained on historical claims inherit any historical biases in approval and settlement patterns.</li>
+              <li>Rare claim types and unusual injury patterns represent small disjuncts — minority sub-concepts that models fail to learn from insufficient examples.</li>
+              <li>NCCI workers' compensation data integrations (as implemented in Sapiens experience) require careful versioning and reconciliation across data releases.</li>
+              <li>Batch processing systems using Spring Batch must handle data quality issues — missing fields, duplicate records — before feeding data to downstream models.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDE BY SIDE COMPARISON TABLE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Challenge Summary — Training vs. Deployment</div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Challenge</th>
+              <th class="ml-col" style="color:var(--gold)">Training Phase</th>
+              <th class="dl-col">Deployment Phase</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Data Availability</td><td class="ml-col">Insufficient samples limit model generalisation</td><td class="dl-col">Ongoing data collection pipelines must stay reliable</td></tr>
+            <tr><td>Data Quality</td><td class="ml-col">Corrupted training signals distort learned patterns</td><td class="dl-col">Live input validation must catch quality issues in real time</td></tr>
+            <tr><td>Class Imbalance</td><td class="ml-col">Model learns to ignore minority classes</td><td class="dl-col">Minority events (fraud, rare claims) missed at inference</td></tr>
+            <tr><td>Data Bias</td><td class="ml-col">Historical bias encoded into model weights</td><td class="dl-col">Biased predictions affect real decisions and carry legal risk</td></tr>
+            <tr><td>Data Drift</td><td class="ml-col">Static training snapshot may not reflect current patterns</td><td class="dl-col">Model degrades silently as input distribution shifts</td></tr>
+            <tr><td>Privacy &amp; Security</td><td class="ml-col">Access to sensitive data for training is restricted</td><td class="dl-col">Inference on live PII data requires strict compliance controls</td></tr>
+            <tr><td>Scalability</td><td class="ml-col">Training on large datasets demands significant compute</td><td class="dl-col">High-throughput inference requires optimised serving infrastructure</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DATA-CENTRIC AI SHIFT -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">The Paradigm Shift — From Model-Centric to Data-Centric AI</div>
+        <div class="paradigm-shift">
+          <div class="paradigm-shift-icon">&#128260;</div>
+          <div>
+            <h5>The field is moving from optimising models to systematically improving data</h5>
+            <p>The past decades of AI research focused on producing better architectures — a paradigm known as
+            Model-Centric AI. Current research and industry practice is shifting toward a different approach:
+            identifying and mitigating data quality issues systematically before and during model training,
+            rather than attempting to compensate for them with model complexity. This Data-Centric AI paradigm
+            involves a continuous cycle of data iteration — moving from imperfect to smart and actionable data —
+            and requires practitioners to deeply understand the imperfections in their datasets, not just the
+            architecture of their models. For enterprise developers integrating ML into production systems,
+            this shift is directly actionable: investing in data pipelines, validation frameworks, and monitoring
+            infrastructure often yields more reliable outcomes than tuning another hyperparameter.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MITIGATION STRATEGIES -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Mitigation Strategies</div>
+        <div class="two-col">
+          <div class="list-block">
+            <h4>Structural Data Issues</h4>
+            <ul>
+              <li><strong style="color:var(--text-md)">Imbalance:</strong> Apply oversampling techniques (SMOTE), undersampling, or class-weighted loss functions to give minority classes appropriate influence during training.</li>
+              <li><strong style="color:var(--text-md)">Missing Data:</strong> Use imputation strategies appropriate to the domain; document missingness patterns as they may themselves carry signal.</li>
+              <li><strong style="color:var(--text-md)">Noisy Labels:</strong> Invest in label quality review processes; use confident learning or label-smoothing techniques to reduce the impact of annotation errors.</li>
+              <li><strong style="color:var(--text-md)">Class Overlap:</strong> Apply dimensionality reduction, feature engineering, or ensemble methods that build separate classifiers for overlapping regions.</li>
+            </ul>
+          </div>
+          <div class="list-block">
+            <h4>Operational &amp; Temporal Issues</h4>
+            <ul>
+              <li><strong style="color:var(--text-md)">Data Drift:</strong> Implement statistical monitoring (PSI, KL divergence) on production data distributions; define retraining triggers when drift exceeds thresholds.</li>
+              <li><strong style="color:var(--text-md)">Privacy:</strong> Apply differential privacy, federated learning, or data anonymisation where direct access to raw PII is restricted by regulation.</li>
+              <li><strong style="color:var(--text-md)">Scalability:</strong> Design data pipelines with distributed processing frameworks (Spark, Kafka) and separate training infrastructure from inference serving.</li>
+              <li><strong style="color:var(--text-md)">Versioning:</strong> Treat datasets as versioned artefacts alongside model code; use tools like DVC or Delta Lake to maintain reproducibility across training runs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- VALUE PROPOSITION -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Value Proposition &amp; Unique Value</div>
+        <div class="artifact-value-grid">
+          <div class="value-card">
+            <h5>&#128161; Value Proposition</h5>
+            <p>Data challenges are the primary reason ML projects fail in production — yet they receive
+            far less attention than model selection. This analysis equips practitioners and stakeholders
+            with a framework to anticipate, diagnose, and address data problems before they silently
+            undermine deployed systems.</p>
+          </div>
+          <div class="value-card">
+            <h5>&#11088; Unique Value</h5>
+            <p>Written from the perspective of a developer with hands-on experience in banking and
+            insurance data systems, this analysis connects abstract ML theory to the Spring Batch
+            pipelines, NCCI integrations, and enterprise data environments where these challenges
+            manifest every day in production.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONCLUSION -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Conclusion</div>
+        <div class="callout-box">
+          The success of a machine learning system depends far less on the sophistication of its model
+          than on the quality of the data it was trained on. <strong>Imbalanced classes</strong> cause
+          models to ignore the events that matter most. <strong>Data drift</strong> causes models to
+          silently degrade. <strong>Bias in training data</strong> becomes bias in decisions that affect
+          real people. And <strong>poor data quality</strong> renders even the most powerful architecture
+          unreliable. Recognising and addressing these challenges is not a preliminary step before the
+          "real" ML work begins — <strong>it is the real ML work</strong>. The most robust path to a
+          trustworthy deployed model is not a better algorithm — it is better data, systematically
+          understood and continuously maintained.
+        </div>
+      </div>
+
+      <!-- TOOLS & CONCEPTS -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Concepts &amp; Frameworks Referenced</div>
+        <div class="artifact-tools">
+          <span class="artifact-tool">Data-Centric AI</span>
+          <span class="artifact-tool">Class Imbalance</span>
+          <span class="artifact-tool">SMOTE</span>
+          <span class="artifact-tool">Data Drift / PSI</span>
+          <span class="artifact-tool">Differential Privacy</span>
+          <span class="artifact-tool">Federated Learning</span>
+          <span class="artifact-tool">GDPR / HIPAA Compliance</span>
+          <span class="artifact-tool">Data Versioning (DVC)</span>
+          <span class="artifact-tool">Label Quality</span>
+          <span class="artifact-tool">Feature Engineering</span>
+          <span class="artifact-tool">Spring Batch (ETL)</span>
+          <span class="artifact-tool">Dataset Shift</span>
+        </div>
+      </div>
+
+      <!-- RELEVANCE -->
+      <div class="artifact-section">
+        <div class="artifact-section-title">Relevance</div>
+        <p>This artifact is directly relevant to AIML 500 course themes of applied AI, responsible
+        technology use, and ethical engineering. It builds on concepts introduced in previous artifacts:
+        the need for quality training data underpins the Java Learning Bot (Artifact 1), determines
+        which ML approach is viable for a given problem (Artifact 2), and governs the reliability of
+        the neural networks described in Artifact 3. As a Senior Software Developer with extensive
+        experience in enterprise data pipelines — batch processing, API integrations, and regulated
+        data environments — understanding the full landscape of data challenges is essential to designing
+        ML systems that are accurate, fair, and reliable in production.</p>
+      </div>
+
       <!-- REFERENCES -->
       <div class="artifact-section">
         <div class="artifact-section-title">References</div>
         <div class="artifact-references">
           <div class="ref-item">
             <span class="ref-num">01</span>
-            <span>Nielsen, M. (2015) — <em>Neural Networks and Deep Learning</em> — accessible foundational text on how neural networks learn: <a href="http://neuralnetworksanddeeplearning.com" target="_blank">neuralnetworksanddeeplearning.com</a></span>
+            <span>Santos, M. (2023) — "Data Quality Issues that Kill Your Machine Learning Models" — Towards Data Science. Overview of imbalanced data, underrepresented sub-concepts, and class overlap as primary data quality challenges:
+              <a href="https://towardsdatascience.com/data-quality-issues-that-kill-your-machine-learning-models-961591340b40" target="_blank">towardsdatascience.com</a>
+            </span>
           </div>
           <div class="ref-item">
             <span class="ref-num">02</span>
-            <span>LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015) — "Deep Learning" — Nature, Vol. 521. Landmark paper establishing deep learning as a field.</span>
+            <span>Krawczyk, B. (2016) — "Learning from Imbalanced Data: Open Challenges and Future Directions" — Progress in Artificial Intelligence, 5(4), 221–232. Foundational survey on class imbalance in ML.</span>
           </div>
           <div class="ref-item">
             <span class="ref-num">03</span>
-            <span>TensorFlow Documentation — Practical reference for neural network implementation concepts: <a href="https://www.tensorflow.org/guide/keras" target="_blank">tensorflow.org/guide/keras</a></span>
+            <span>Das, S., Datta, S., Chaudhuri, B. (2018) — "Handling data irregularities in classification: Foundations, trends, and future challenges" — Pattern Recognition, 81, 674–693.</span>
           </div>
           <div class="ref-item">
             <span class="ref-num">04</span>
-            <span>3Blue1Brown — "Neural Networks" video series — outstanding visual explanation of backpropagation and gradient descent: <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank">youtube.com — 3Blue1Brown Neural Networks playlist</a></span>
+            <span>Andrew Ng — Data-Centric AI initiative — framework for systematic data improvement over model optimisation:
+              <a href="https://datacentricai.org" target="_blank">datacentricai.org</a>
+            </span>
+          </div>
+          <div class="ref-item">
+            <span class="ref-num">05</span>
+            <span>Scikit-learn Documentation — imbalanced-learn library for SMOTE and resampling strategies:
+              <a href="https://imbalanced-learn.org" target="_blank">imbalanced-learn.org</a>
+            </span>
+          </div>
+          <div class="ref-item">
+            <span class="ref-num">06</span>
+            <span>NCCI (National Council on Compensation Insurance) — Workers' compensation data standards referenced through Sapiens Technologies integration experience:
+              <a href="https://www.ncci.com" target="_blank">ncci.com</a>
+            </span>
           </div>
         </div>
       </div>
@@ -1887,6 +2331,7 @@
     </div>
   </div>
 </div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
 
 <hr class="section-divider">
 
@@ -1960,14 +2405,31 @@
 <script>
   /* ── Section reveal ── */
   const revealEls = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('visible');
-      revealObs.unobserve(e.target);
+
+  // Add animation class after a brief moment (ensures content is visible even if JS is slow)
+  setTimeout(() => {
+    revealEls.forEach(el => {
+      const r = el.getBoundingClientRect();
+      // Only animate elements that are below the fold
+      if (r.top > window.innerHeight) {
+        el.classList.add('animate-on-scroll');
+      }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -48px 0px' });
-  revealEls.forEach(el => revealObs.observe(el));
+
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      });
+    }, { threshold: 0.02, rootMargin: '100px 0px 100px 0px' });
+    revealEls.forEach(el => {
+      if (el.classList.contains('animate-on-scroll')) revealObs.observe(el);
+    });
+
+    // Final fallback: reveal everything after 3s
+    setTimeout(() => revealEls.forEach(el => el.classList.remove('animate-on-scroll')), 3000);
+  }, 100);
 
   /* ── Stagger skills ── */
   const skillsSection = document.getElementById('skills');
@@ -2031,7 +2493,7 @@
       const href = a.getAttribute('href').replace('#', '');
       a.classList.toggle('active',
         href === cur ||
-        (href === 'artifact' && (cur === 'artifact' || cur === 'artifact2' || cur === 'artifact3'))
+        (href === 'artifact' && (cur === 'artifact' || cur === 'artifact2' || cur === 'artifact3' || cur === 'artifact4'))
       );
     });
   };
